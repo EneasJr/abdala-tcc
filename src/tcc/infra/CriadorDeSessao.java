@@ -5,13 +5,14 @@
 package tcc.infra;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
-public class SessionFactory {
+public class CriadorDeSessao {
     
-    org.hibernate.SessionFactory sessionFactory;
+    SessionFactory sessionFactory;
     
-    public SessionFactory(){
+    public CriadorDeSessao(){
         AnnotationConfiguration configuration = new AnnotationConfiguration();
         configuration.configure();
         this.sessionFactory =configuration.buildSessionFactory();
