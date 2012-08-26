@@ -28,6 +28,9 @@
 
 nbproject/
 *.properties
+build/
+build.xml
+manifest.mf
 
 # OS generated files #
 ######################
