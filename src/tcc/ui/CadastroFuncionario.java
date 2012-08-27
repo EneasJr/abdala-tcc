@@ -66,6 +66,19 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         fTel = new javax.swing.JFormattedTextField();
         lblCel = new javax.swing.JLabel();
         fCel = new javax.swing.JFormattedTextField();
+        lblAdmissao = new javax.swing.JLabel();
+        lblDemissao = new javax.swing.JLabel();
+        fAdmissao = new javax.swing.JFormattedTextField();
+        fDemissao = new javax.swing.JFormattedTextField();
+        jLabel1 = new javax.swing.JLabel();
+        fEnd1 = new javax.swing.JTextField();
+        fEnd2 = new javax.swing.JTextField();
+        lblCidade = new javax.swing.JLabel();
+        fCidade = new javax.swing.JTextField();
+        lblCep = new javax.swing.JLabel();
+        fCep = new javax.swing.JFormattedTextField();
+        jLabel2 = new javax.swing.JLabel();
+        fUF = new javax.swing.JComboBox();
         JMenuBarra = new javax.swing.JMenuBar();
         jmArquivo = new javax.swing.JMenu();
         aAbrir = new javax.swing.JMenuItem();
@@ -120,7 +133,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(lblNome);
         lblNome.setBounds(30, 50, 70, 22);
         JPanelCadastro.add(fNome);
-        fNome.setBounds(150, 50, 490, 30);
+        fNome.setBounds(150, 50, 610, 30);
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEmail.setText("E-mail");
@@ -269,6 +282,71 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         }
         JPanelCadastro.add(fCel);
         fCel.setBounds(470, 490, 170, 30);
+
+        lblAdmissao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblAdmissao.setText("Data Admissão");
+        JPanelCadastro.add(lblAdmissao);
+        lblAdmissao.setBounds(500, 90, 120, 20);
+
+        lblDemissao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblDemissao.setText("Data Demissão");
+        JPanelCadastro.add(lblDemissao);
+        lblDemissao.setBounds(500, 130, 120, 30);
+
+        try {
+            fAdmissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        JPanelCadastro.add(fAdmissao);
+        fAdmissao.setBounds(640, 90, 120, 30);
+
+        try {
+            fDemissao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        JPanelCadastro.add(fDemissao);
+        fDemissao.setBounds(640, 130, 120, 30);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Endereço");
+        JPanelCadastro.add(jLabel1);
+        jLabel1.setBounds(390, 170, 100, 22);
+        JPanelCadastro.add(fEnd1);
+        fEnd1.setBounds(500, 170, 260, 30);
+        JPanelCadastro.add(fEnd2);
+        fEnd2.setBounds(500, 210, 260, 30);
+
+        lblCidade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCidade.setText("Cidade");
+        JPanelCadastro.add(lblCidade);
+        lblCidade.setBounds(390, 290, 80, 22);
+        JPanelCadastro.add(fCidade);
+        fCidade.setBounds(500, 290, 140, 30);
+
+        lblCep.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCep.setText("Cep");
+        JPanelCadastro.add(lblCep);
+        lblCep.setBounds(390, 250, 40, 22);
+
+        try {
+            fCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        JPanelCadastro.add(fCep);
+        fCep.setBounds(500, 250, 140, 30);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("UF");
+        JPanelCadastro.add(jLabel2);
+        jLabel2.setBounds(650, 250, 21, 22);
+
+        fUF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fUF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AL", "AP", "AM", "BA", "CE", "DF ", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO" }));
+        JPanelCadastro.add(fUF);
+        fUF.setBounds(690, 250, 70, 30);
 
         getContentPane().add(JPanelCadastro);
         JPanelCadastro.setBounds(20, 10, 960, 570);
@@ -424,6 +502,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         funcionario.setEmail(this.fEmail.getText());
         funcionario.setTelefone(this.fTel.getText());
         funcionario.setCelular(this.fCel.getText());
+        funcionario.setData_admissao(new Date());
+        funcionario.setData_demissao(new Date());
+        funcionario.setCep(this.fCep.getText());
+        funcionario.setEndereco1(this.fEnd1.getText());
+        funcionario.setEndereco2(this.fEnd2.getText());
+        funcionario.setUf("SP");
 
         dao.adiciona(funcionario, this);
     }//GEN-LAST:event_btnInserirActionPerformed
@@ -501,12 +585,18 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JMenu ePropriedades;
     private javax.swing.JMenuItem eRefazer;
     private javax.swing.JMenuItem eStatus;
+    private javax.swing.JFormattedTextField fAdmissao;
     private javax.swing.JFormattedTextField fCPF;
     private javax.swing.JFormattedTextField fCTPS;
     private javax.swing.JFormattedTextField fCel;
+    private javax.swing.JFormattedTextField fCep;
+    private javax.swing.JTextField fCidade;
     private javax.swing.JComboBox fCivil;
     private javax.swing.JTextField fCodigo;
+    private javax.swing.JFormattedTextField fDemissao;
     private javax.swing.JTextField fEmail;
+    private javax.swing.JTextField fEnd1;
+    private javax.swing.JTextField fEnd2;
     private javax.swing.JComboBox fMasc;
     private javax.swing.JFormattedTextField fNasc;
     private javax.swing.JTextField fNasciona;
@@ -515,13 +605,20 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField fProfissao;
     private javax.swing.JFormattedTextField fRG;
     private javax.swing.JFormattedTextField fTel;
+    private javax.swing.JComboBox fUF;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jmArquivo;
+    private javax.swing.JLabel lblAdmissao;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCTPS;
     private javax.swing.JLabel lblCel;
+    private javax.swing.JLabel lblCep;
+    private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCivil;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblData;
+    private javax.swing.JLabel lblDemissao;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblNacionalidade;
     private javax.swing.JLabel lblNome;

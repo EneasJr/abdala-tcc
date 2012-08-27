@@ -51,6 +51,52 @@ public class Funcionario implements Serializable{
     private String email;
     private String telefone;
     private String celular;
+    //Novos componentes 2
+    private String endereco1;
+    private String endereco2;
+    private String cep;
+    private String cidade;
+    private String uf;
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEndereco1() {
+        return endereco1;
+    }
+
+    public void setEndereco1(String endereco1) {
+        this.endereco1 = endereco1;
+    }
+
+    public String getEndereco2() {
+        return endereco2;
+    }
+
+    public void setEndereco2(String endereco2) {
+        this.endereco2 = endereco2;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
 
     public String getNacionalidade() {
         return nacionalidade;
