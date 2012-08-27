@@ -4,13 +4,10 @@
  */
 package tcc.ui;
 
-import java.awt.Color;
-import java.awt.Component;
-import javax.swing.BorderFactory;
-import javax.swing.JFormattedTextField;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import tcc.controller.ClienteController;
+import java.util.Date;
+import tcc.model.Cliente;
+import tcc.model.EnderecoCliente;
+import tcc.dao.ClienteDAO;
 
 /**
  *
@@ -18,12 +15,9 @@ import tcc.controller.ClienteController;
  */
 public class CadastroCliente extends javax.swing.JFrame {
 
-    private static final long serialVersionUID = 6966320465780425281L;
     /**
      * Creates new form CadastroCliente
      */
-    ClienteController controller;
-
     public CadastroCliente() {
         initComponents();
     }
@@ -141,12 +135,6 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         lblEndereco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEndereco.setText("Endereço");
-
-        eEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                eEnderecoKeyPressed(evt);
-            }
-        });
 
         lblCep.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCep.setText("Cep");
@@ -510,25 +498,35 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_eIGrandesActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
-        if (!validaComponentes(this.JPanelCadastro)) {
-            return;
-        }
-        System.out.println("opa");
+        ClienteDAO dao = new ClienteDAO();
+        
+        Cliente cliente = new Cliente();
+        EnderecoCliente endereco = new EnderecoCliente();
+        cliente.setNome(this.eNome.getText());
+        cliente.setCelular(this.eCel.getText());
+        cliente.setEmail(this.eEmail.getText());
+        cliente.setTelefone(this.eTel.getText());
+        cliente.setData_alt(new Date());
+        cliente.setTipo("PF");
+        cliente.setDocumento(this.eCNPJ.getText());
+        endereco.setCep(this.eCEP.getText());
+        endereco.setEndereco1(this.eEndereco.getText());
+        endereco.setEndereco2(this.eBairro.getText());
+        endereco.setCidade(this.eCidade.getText());
+        endereco.setUf("SP");
+        cliente.setEnd_cliente(endereco);
+        
+        dao.adiciona(cliente, this);
+        
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void eCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eCelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eCelActionPerformed
 
-<<<<<<< HEAD
     private void eNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eNomeActionPerformed
-=======
-    private void eEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eEnderecoKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eEnderecoKeyPressed
->>>>>>> Refatoracao do ClienteDAO e adição do ClienteController
 
     /**
      * @param args the command line arguments
@@ -565,6 +563,7 @@ public class CadastroCliente extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new CadastroCliente().setVisible(true);
             }
@@ -629,25 +628,4 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdPF;
     private javax.swing.JRadioButton rdPJ;
     // End of variables declaration//GEN-END:variables
-
-    private boolean validaComponentes(JPanel jp) {
-        boolean r = true;
-        for (Component c : jp.getComponents()) {
-            if (c instanceof JFormattedTextField) {
-                JFormattedTextField j = (JFormattedTextField) c;
-                if (j.getText().equals("") || j.getText() == null) {
-                    j.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
-                    r = false;
-                }
-            } else if (c instanceof JTextField) {
-                JTextField j = (JTextField) c;
-                if (j.getText().equals("") || j.getText() == null) {
-                    j.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
-                    r = false;
-                }
-            }
-        }
-
-        return r;
-    }
 }
