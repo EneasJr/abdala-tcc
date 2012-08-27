@@ -42,7 +42,7 @@ public class Funcionario implements Serializable{
     private String cpf;
     private String tipo;
     private String rg;
-    private int ctps;
+    private String ctps;
     private String estado;
     private String profissao;
     @Temporal(TemporalType.DATE)
@@ -84,11 +84,11 @@ public class Funcionario implements Serializable{
         this.rg = rg;
     }
 
-    public int getCtps() {
+    public String getCtps() {
         return ctps;
     }
 
-    public void setCtps(int ctps) {
+    public void setCtps(String ctps) {
         this.ctps = ctps;
     }
 

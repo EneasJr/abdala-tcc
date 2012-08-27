@@ -126,8 +126,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblEmail.setText("E-mail");
         JPanelCadastro.add(lblEmail);
         lblEmail.setBounds(30, 450, 49, 22);
-
-        fEmail.setPreferredSize(new java.awt.Dimension(14, 28));
         JPanelCadastro.add(fEmail);
         fEmail.setBounds(150, 450, 490, 30);
 
