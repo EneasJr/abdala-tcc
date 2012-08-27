@@ -415,7 +415,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         funcionario.setTipo("PF");
         funcionario.setRg(this.fRG.getText());
         //funcionario.setCtps(this.fCTPS.getText());
-        funcionario.setEstado("SP");
+        funcionario.setEstadoCivil("SP");
+        funcionario.setCtps(this.fCTPS.getText());
+        funcionario.setEstadoCivil("Solteiro");
         funcionario.setProfissao(this.fProfissao.getText());
         funcionario.setDataNasc(new Date());
         funcionario.setSexo("Masculino");

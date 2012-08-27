@@ -43,7 +43,7 @@ public class Funcionario implements Serializable{
     private String tipo;
     private String rg;
     private String ctps;
-    private String estado;
+    private String estadoCivil;
     private String profissao;
     @Temporal(TemporalType.DATE)
     private Date dataNasc;
@@ -92,13 +92,15 @@ public class Funcionario implements Serializable{
         this.ctps = ctps;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoCivil() {
+        return estadoCivil;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
     }
+
+
 
     public String getProfissao() {
         return profissao;
