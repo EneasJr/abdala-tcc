@@ -127,6 +127,12 @@ public class CadastroCliente extends javax.swing.JFrame {
         lblNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblNome.setText("Nome/Razão Social");
 
+        eNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eNomeActionPerformed(evt);
+            }
+        });
+
         lblEndereco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEndereco.setText("Endereço");
 
@@ -517,6 +523,10 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void eCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eCelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eCelActionPerformed
+
+    private void eNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eNomeActionPerformed
 
     /**
      * @param args the command line arguments

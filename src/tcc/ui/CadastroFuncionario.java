@@ -4,6 +4,10 @@
  */
 package tcc.ui;
 
+import java.util.Date;
+import tcc.dao.FuncionarioDAO;
+import tcc.model.EnderecoFuncionario;
+
 /**
  *
  * @author Affero
@@ -128,6 +132,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         btnInserir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnInserir.setText("Inserir");
+        btnInserir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInserirActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(btnInserir);
         btnInserir.setBounds(20, 530, 86, 30);
 
@@ -239,7 +248,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTel.setText("Telefone");
         JPanelCadastro.add(lblTel);
-        lblTel.setBounds(30, 480, 80, 30);
+        lblTel.setBounds(30, 490, 80, 30);
 
         try {
             fTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-#####-####")));
@@ -395,6 +404,28 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void eIGrandesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eIGrandesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eIGrandesActionPerformed
+
+    private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
+        FuncionarioDAO dao = new FuncionarioDAO();
+        
+       // FuncionarioDAO funcionario = new FuncionarioDAO();
+       // EnderecoFuncionario endereco = new EnderecoFuncionario();
+       // funcionario.setNome(this.fNome.getText());
+       // funcionario.setNacionalidade(this.fNasciona.getText());
+       // funcionario.setCpf(this.fCPF.getText());
+       // funcionario.setTipo("PF");
+       // funcionario.setRg(this.fRG.getText());
+       // funcionario.setCtps(this.fCTPS.getText());
+       // funcionario.setEstado("SP");
+       // funcionario.setProfissao(this.fProfissao.getText());
+       // funcionario.setDataNasc(new Date());
+       // funcionario.setSexo("Masculino");
+       // funcionario.setEmail(this.fEmail.getText());
+       // funcionario.setTelefone(this.fTel.getText());
+       // funcionario.setCelular(this.fCel.getText());
+        
+       // dao.adiciona(funcionario, this);
+    }//GEN-LAST:event_btnInserirActionPerformed
 
     /**
      * @param args the command line arguments

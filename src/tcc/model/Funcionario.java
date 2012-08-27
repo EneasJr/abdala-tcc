@@ -37,7 +37,117 @@ public class Funcionario implements Serializable{
     @OneToOne(optional=false, cascade= CascadeType.ALL,fetch= FetchType.EAGER)
     @JoinColumn(name="id_login")
     private long id_login;
+    //adicionando novos componentes
+    private String nacionalidade;
+    private String cpf;
+    private String tipo;
+    private String rg;
+    private int ctps;
+    private String estado;
+    private String profissao;
+    @Temporal(TemporalType.DATE)
+    private Date dataNasc;
+    private String sexo;
+    private String email;
+    private String telefone;
+    private String celular;
 
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public int getCtps() {
+        return ctps;
+    }
+
+    public void setCtps(int ctps) {
+        this.ctps = ctps;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getProfissao() {
+        return profissao;
+    }
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    public Date getDataNasc() {
+        return dataNasc;
+    }
+
+    public void setDataNasc(Date dataNasc) {
+        this.dataNasc = dataNasc;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+    
     public long getId_funcionario() {
         return id_funcionario;
     }
