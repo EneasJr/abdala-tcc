@@ -4,8 +4,15 @@
  */
 package tcc.ui;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.util.Date;
-import tcc.dao.ClienteDAO;
+import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import tcc.controller.ClienteController;
 import tcc.model.Cliente;
 import tcc.model.EnderecoCliente;
 
@@ -14,12 +21,14 @@ import tcc.model.EnderecoCliente;
  * @author Affero
  */
 public class CadastroCliente extends javax.swing.JFrame {
-
+    
+    private Border border;
     /**
      * Creates new form CadastroCliente
      */
     public CadastroCliente() {
         initComponents();
+        this.border = this.eCEP.getBorder();
     }
 
     /**
@@ -44,7 +53,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         eNome = new javax.swing.JTextField();
         lblEndereco = new javax.swing.JLabel();
         eEndereco = new javax.swing.JTextField();
-        eBairro = new javax.swing.JTextField();
+        eEndereco2 = new javax.swing.JTextField();
         lblCep = new javax.swing.JLabel();
         lblCidade = new javax.swing.JLabel();
         eCidade = new javax.swing.JTextField();
@@ -119,6 +128,7 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         buttonGroup2.add(rdPJ);
         rdPJ.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        rdPJ.setSelected(true);
         rdPJ.setText("PJ");
 
         lblCNPJ.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -132,15 +142,49 @@ public class CadastroCliente extends javax.swing.JFrame {
                 eNomeActionPerformed(evt);
             }
         });
+        eNome.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eNomeFocusLost(evt);
+            }
+        });
+        eNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eNomeKeyPressed(evt);
+            }
+        });
 
         lblEndereco.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEndereco.setText("Endereço");
+
+        eEndereco.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eEnderecoFocusLost(evt);
+            }
+        });
+        eEndereco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eEnderecoKeyPressed(evt);
+            }
+        });
+
+        eEndereco2.setName("eEndereco"); // NOI18N
 
         lblCep.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCep.setText("Cep");
 
         lblCidade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCidade.setText("Cidade");
+
+        eCidade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eCidadeFocusLost(evt);
+            }
+        });
+        eCidade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eCidadeKeyPressed(evt);
+            }
+        });
 
         lblUF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblUF.setText("UF");
@@ -156,6 +200,16 @@ public class CadastroCliente extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        eCNPJ.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eCNPJFocusLost(evt);
+            }
+        });
+        eCNPJ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eCNPJKeyPressed(evt);
+            }
+        });
 
         try {
             eCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -163,6 +217,16 @@ public class CadastroCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         eCEP.setPreferredSize(new java.awt.Dimension(14, 28));
+        eCEP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eCEPFocusLost(evt);
+            }
+        });
+        eCEP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eCEPKeyPressed(evt);
+            }
+        });
 
         lblTelefone.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTelefone.setText("Telefone");
@@ -173,6 +237,16 @@ public class CadastroCliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         eTel.setPreferredSize(new java.awt.Dimension(14, 28));
+        eTel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eTelFocusLost(evt);
+            }
+        });
+        eTel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eTelKeyPressed(evt);
+            }
+        });
 
         cbUF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cbUF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AL", "AP", "AM", "BA", "CE", "DF ", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO" }));
@@ -181,6 +255,17 @@ public class CadastroCliente extends javax.swing.JFrame {
 
         lblEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEmail.setText("E-mail");
+
+        eEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eEmailFocusLost(evt);
+            }
+        });
+        eEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eEmailKeyPressed(evt);
+            }
+        });
 
         lblCel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCel.setText("Celular");
@@ -194,6 +279,16 @@ public class CadastroCliente extends javax.swing.JFrame {
         eCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eCelActionPerformed(evt);
+            }
+        });
+        eCel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                eCelFocusLost(evt);
+            }
+        });
+        eCel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                eCelKeyPressed(evt);
             }
         });
 
@@ -282,7 +377,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(JPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(JPanelCadastroLayout.createSequentialGroup()
-                                .addComponent(eBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(eEndereco2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(JPanelCadastroLayout.createSequentialGroup()
                                 .addComponent(eCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,7 +426,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                     .addComponent(lblCep)
                     .addComponent(eCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
-                .addComponent(eBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eEndereco2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(JPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblCidade)
@@ -498,26 +593,41 @@ public class CadastroCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_eIGrandesActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
-        ClienteDAO dao = new ClienteDAO();
-        
-        Cliente cliente = new Cliente();
-        EnderecoCliente endereco = new EnderecoCliente();
-        cliente.setNome(this.eNome.getText());
-        cliente.setCelular(this.eCel.getText());
-        cliente.setEmail(this.eEmail.getText());
-        cliente.setTelefone(this.eTel.getText());
-        cliente.setData_alt(new Date());
-        cliente.setTipo("PF");
-        cliente.setDocumento(this.eCNPJ.getText());
-        endereco.setCep(this.eCEP.getText());
-        endereco.setEndereco1(this.eEndereco.getText());
-        endereco.setEndereco2(this.eBairro.getText());
-        endereco.setCidade(this.eCidade.getText());
-        endereco.setUf("SP");
-        cliente.setEnd_cliente(endereco);
-        
-        dao.adiciona(cliente, this);
-        
+        ClienteController controller = new ClienteController();
+
+        if (verificaPanel(JPanelCadastro)) {
+            Cliente cliente = new Cliente();
+            EnderecoCliente endereco = new EnderecoCliente();
+            cliente.setNome(this.eNome.getText());
+            cliente.setCelular(this.eCel.getText());
+            cliente.setEmail(this.eEmail.getText());
+            cliente.setTelefone(this.eTel.getText());
+            cliente.setData_alt(new Date());
+            
+            if(this.rdPF.isSelected()){
+                cliente.setTipo("PF");
+            } else {
+                cliente.setTipo("PJ");
+            }
+            
+            cliente.setDocumento(this.eCNPJ.getText());
+            
+            endereco.setCep(this.eCEP.getText());
+            endereco.setEndereco1(this.eEndereco.getText());
+            endereco.setEndereco2(this.eEndereco2.getText());
+            endereco.setCidade(this.eCidade.getText());
+            
+            endereco.setUf((String) this.cbUF.getSelectedItem());
+            
+            cliente.setEnd_cliente(endereco);
+            
+            controller.adiciona(cliente);
+            cliente.setId_cliente(controller.buscaPorCPF(cliente.getDocumento()).getId_cliente());
+            
+            this.eCodigo.setText(String.valueOf(cliente.getId_cliente()));
+            this.eDateAlt.setText(String.valueOf(cliente.getData_alt()));
+        }
+
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void eCelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eCelActionPerformed
@@ -527,6 +637,70 @@ public class CadastroCliente extends javax.swing.JFrame {
     private void eNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_eNomeActionPerformed
+
+    private void eCNPJKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eCNPJKeyPressed
+        verificaJTextField(eCNPJ);
+    }//GEN-LAST:event_eCNPJKeyPressed
+
+    private void eNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eNomeKeyPressed
+        verificaJTextField(eNome);
+    }//GEN-LAST:event_eNomeKeyPressed
+
+    private void eEnderecoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eEnderecoKeyPressed
+        verificaJTextField(eEndereco);
+    }//GEN-LAST:event_eEnderecoKeyPressed
+
+    private void eCNPJFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eCNPJFocusLost
+        verificaJTextField(eCNPJ);
+    }//GEN-LAST:event_eCNPJFocusLost
+
+    private void eNomeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eNomeFocusLost
+        verificaJTextField(eNome);
+    }//GEN-LAST:event_eNomeFocusLost
+
+    private void eEnderecoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eEnderecoFocusLost
+        verificaJTextField(eEndereco);
+    }//GEN-LAST:event_eEnderecoFocusLost
+
+    private void eCEPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eCEPFocusLost
+        verificaJTextField(eCEP);
+    }//GEN-LAST:event_eCEPFocusLost
+
+    private void eCEPKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eCEPKeyPressed
+         verificaJTextField(eCEP);
+    }//GEN-LAST:event_eCEPKeyPressed
+
+    private void eCidadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eCidadeFocusLost
+        verificaJTextField(eCidade);
+    }//GEN-LAST:event_eCidadeFocusLost
+
+    private void eCidadeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eCidadeKeyPressed
+        verificaJTextField(eCidade);
+    }//GEN-LAST:event_eCidadeKeyPressed
+
+    private void eTelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eTelFocusLost
+        verificaJTextField(eTel);
+    }//GEN-LAST:event_eTelFocusLost
+
+    private void eTelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eTelKeyPressed
+        verificaJTextField(eTel);
+    }//GEN-LAST:event_eTelKeyPressed
+
+    private void eCelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eCelFocusLost
+        verificaJTextField(eCel);
+    }//GEN-LAST:event_eCelFocusLost
+
+    private void eCelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eCelKeyPressed
+        verificaJTextField(eCel);
+    }//GEN-LAST:event_eCelKeyPressed
+
+    private void eEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_eEmailFocusLost
+        verificaJTextField(eEmail);
+    }//GEN-LAST:event_eEmailFocusLost
+
+    private void eEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eEmailKeyPressed
+        verificaJTextField(eEmail);
+    }//GEN-LAST:event_eEmailKeyPressed
 
     /**
      * @param args the command line arguments
@@ -563,7 +737,6 @@ public class CadastroCliente extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             public void run() {
                 new CadastroCliente().setVisible(true);
             }
@@ -590,7 +763,6 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox cbUF;
-    private javax.swing.JTextField eBairro;
     private javax.swing.JFormattedTextField eCEP;
     private javax.swing.JFormattedTextField eCNPJ;
     private javax.swing.JFormattedTextField eCel;
@@ -605,6 +777,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JMenuItem eDetalhe;
     private javax.swing.JTextField eEmail;
     private javax.swing.JTextField eEndereco;
+    private javax.swing.JTextField eEndereco2;
     private javax.swing.JMenuItem eFerramentas;
     private javax.swing.JMenuItem eIGrandes;
     private javax.swing.JMenuItem eIPequenos;
@@ -628,4 +801,54 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton rdPF;
     private javax.swing.JRadioButton rdPJ;
     // End of variables declaration//GEN-END:variables
+
+    private boolean verificaPanel(JPanel jp) {
+        boolean rt = true;
+        for (Component c : jp.getComponents()) {
+            if (c instanceof JTextField) {
+                JTextField jtf = (JTextField) c;
+                if(!verificaJTextField(jtf)){
+                    rt = false;
+                }
+            }
+            if (c instanceof JFormattedTextField) {
+                JFormattedTextField jftf = (JFormattedTextField) c;
+                if(!verificaJTextField(jftf)){
+                    rt = false;
+                }
+            }
+        }
+        return rt;
+    }
+
+    private boolean verificaJTextField(JTextField jt) {
+        if(jt.equals(this.eEndereco2)) {
+            return true;
+        }
+        
+        if(jt.equals(this.eCodigo)) {
+            return true;
+        }
+        
+        if(jt.equals(this.eDateAlt)) {
+            return true;
+        }
+        
+        if (jt.getText() == null) {
+            jt.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+            return false;
+        }
+        String txt = jt.getText();
+        txt = txt.trim();
+        txt = txt.replace("/", "");
+        txt = txt.replace(".", "");
+        txt = txt.replace("-", "");
+        txt = txt.trim();
+        if (txt.equals("")) {
+            jt.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+            return false;
+        }
+        jt.setBorder(border);
+        return true;
+    }
 }

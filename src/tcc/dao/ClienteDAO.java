@@ -8,10 +8,11 @@ import java.awt.Component;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import tcc.infra.CriadorDeSessao;
+import org.hibernate.criterion.Restrictions;
 import tcc.model.Cliente;
 
 /**
@@ -21,9 +22,13 @@ import tcc.model.Cliente;
 public class ClienteDAO {
     
     private static final Logger log = Logger.getLogger(ClienteDAO.class.getName());
+    private static Session session;
+    
+    public ClienteDAO(Session session) {
+        this.session = session;
+    }
 
     public void adiciona(Cliente cliente, Component c) {
-        Session session = new CriadorDeSessao().getSession();
         Transaction trx = session.beginTransaction();
         trx.begin();
         try {
@@ -42,7 +47,6 @@ public class ClienteDAO {
     }
     
     public void adiciona(Cliente cliente){
-        Session session = new CriadorDeSessao().getSession();
         Transaction trx = session.beginTransaction();
         trx.begin();
         try {
@@ -56,6 +60,11 @@ public class ClienteDAO {
         } finally {
             session.close();
         }
+    }
+
+    public Cliente buscaPorCPF(String CPF) {
+        Criteria ct = session.createCriteria(Cliente.class);
+        return (Cliente) ct.add(Restrictions.eq("documento", CPF)).uniqueResult();
     }
     
 }
