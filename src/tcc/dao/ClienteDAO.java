@@ -4,7 +4,12 @@
  */
 package tcc.dao;
 
+import java.awt.Component;
+import java.awt.TrayIcon.MessageType;
+import javax.swing.JOptionPane;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import tcc.infra.CriadorDeSessao;
 import tcc.model.Cliente;
 
@@ -14,9 +19,21 @@ import tcc.model.Cliente;
  */
 public class ClienteDAO {
 
-    public void adiciona(Cliente cliente) {
+    public void adiciona(Cliente cliente, Component c) {
         Session session = new CriadorDeSessao().getSession();
-        session.save(cliente);
+        Transaction trx = session.beginTransaction();
+        trx.begin();
+        try {
+            session.save(cliente);
+            trx.commit();
+            JOptionPane.showMessageDialog(c, "Cliente inserido com sucesso", null, JOptionPane.INFORMATION_MESSAGE);
+        }
+        catch (HibernateException e) {
+            trx.rollback();
+            JOptionPane.showMessageDialog(c, "Não", null, JOptionPane.ERROR);
+        } finally {
+            session.close();
+        }
     }
     
 }

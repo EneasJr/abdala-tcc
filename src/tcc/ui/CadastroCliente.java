@@ -487,6 +487,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         cliente.setTelefone(this.eTel.getText());
         cliente.setData_alt(new Date());
         cliente.setTipo("PF");
+        cliente.setDocumento(this.eCNPJ.getText());
         endereco.setCep(this.eCEP.getText());
         endereco.setEndereco1(this.eEndereco.getText());
         endereco.setEndereco2(this.eBairro.getText());
@@ -494,7 +495,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         endereco.setUf("SP");
         cliente.setEnd_cliente(endereco);
         
-        dao.adiciona(cliente);
+        dao.adiciona(cliente, this);
         
     }//GEN-LAST:event_btnInserirActionPerformed
 
