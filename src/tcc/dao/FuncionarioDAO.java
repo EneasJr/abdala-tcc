@@ -11,6 +11,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import tcc.infra.CriadorDeSessao;
+import tcc.model.Funcionario;
 
 
 
@@ -18,7 +19,7 @@ public class FuncionarioDAO {
     
     private static Logger log = Logger.getLogger(FuncionarioDAO.class.getName());
         
-        public void adiciona(FuncionarioDAO funcionario, Component c){
+        public void adiciona(Funcionario funcionario, Component c){
             
         Session session = new CriadorDeSessao().getSession();
         Transaction trx = session.beginTransaction();
@@ -38,7 +39,7 @@ public class FuncionarioDAO {
         }
     }
     
-    public void adiciona(FuncionarioDAO funcionario){
+    public void adiciona(Funcionario funcionario){
         Session session = new CriadorDeSessao().getSession();
         Transaction trx = session.beginTransaction();
         trx.begin();

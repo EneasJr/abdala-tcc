@@ -5,9 +5,9 @@
 package tcc.ui;
 
 import java.util.Date;
+import tcc.dao.ClienteDAO;
 import tcc.model.Cliente;
 import tcc.model.EnderecoCliente;
-import tcc.dao.ClienteDAO;
 
 /**
  *

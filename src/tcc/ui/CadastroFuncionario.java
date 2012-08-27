@@ -7,6 +7,7 @@ package tcc.ui;
 import java.util.Date;
 import tcc.dao.FuncionarioDAO;
 import tcc.model.EnderecoFuncionario;
+import tcc.model.Funcionario;
 
 /**
  *
@@ -408,23 +409,23 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         FuncionarioDAO dao = new FuncionarioDAO();
         
-       // FuncionarioDAO funcionario = new FuncionarioDAO();
-       // EnderecoFuncionario endereco = new EnderecoFuncionario();
-       // funcionario.setNome(this.fNome.getText());
-       // funcionario.setNacionalidade(this.fNasciona.getText());
-       // funcionario.setCpf(this.fCPF.getText());
-       // funcionario.setTipo("PF");
-       // funcionario.setRg(this.fRG.getText());
-       // funcionario.setCtps(this.fCTPS.getText());
-       // funcionario.setEstado("SP");
-       // funcionario.setProfissao(this.fProfissao.getText());
-       // funcionario.setDataNasc(new Date());
-       // funcionario.setSexo("Masculino");
-       // funcionario.setEmail(this.fEmail.getText());
-       // funcionario.setTelefone(this.fTel.getText());
-       // funcionario.setCelular(this.fCel.getText());
-        
-       // dao.adiciona(funcionario, this);
+        Funcionario funcionario = new Funcionario();
+        EnderecoFuncionario endereco = new EnderecoFuncionario();
+        funcionario.setNome(this.fNome.getText());
+        funcionario.setNacionalidade(this.fNasciona.getText());
+        funcionario.setCpf(this.fCPF.getText());
+        funcionario.setTipo("PF");
+        funcionario.setRg(this.fRG.getText());
+        funcionario.setCtps(this.fCTPS.getText());
+        funcionario.setEstado("SP");
+        funcionario.setProfissao(this.fProfissao.getText());
+        funcionario.setDataNasc(new Date());
+        funcionario.setSexo("Masculino");
+        funcionario.setEmail(this.fEmail.getText());
+        funcionario.setTelefone(this.fTel.getText());
+        funcionario.setCelular(this.fCel.getText());
+
+        dao.adiciona(funcionario);
     }//GEN-LAST:event_btnInserirActionPerformed
 
     /**
