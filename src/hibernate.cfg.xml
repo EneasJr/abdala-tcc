@@ -7,5 +7,8 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bd_primus?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">sistema</property>
     <property name="hibernate.connection.password">syspass</property>
+    
+    <mapping class="tcc.model.Cliente"></mapping>
+    <mapping class="tcc.model.EnderecoCliente"></mapping>
   </session-factory>
 </hibernate-configuration>
