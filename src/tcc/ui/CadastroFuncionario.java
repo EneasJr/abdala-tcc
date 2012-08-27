@@ -414,7 +414,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         funcionario.setCpf(this.fCPF.getText());
         funcionario.setTipo("PF");
         funcionario.setRg(this.fRG.getText());
-        funcionario.setCtps(this.fCTPS.getText());
+        //funcionario.setCtps(this.fCTPS.getText());
         funcionario.setEstado("SP");
         funcionario.setProfissao(this.fProfissao.getText());
         funcionario.setDataNasc(new Date());
@@ -423,7 +423,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         funcionario.setTelefone(this.fTel.getText());
         funcionario.setCelular(this.fCel.getText());
 
-        dao.adiciona(funcionario);
+        dao.adiciona(funcionario, this);
     }//GEN-LAST:event_btnInserirActionPerformed
 
     /**
