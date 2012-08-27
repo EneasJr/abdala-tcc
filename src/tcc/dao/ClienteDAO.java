@@ -22,7 +22,7 @@ import tcc.model.Cliente;
 public class ClienteDAO {
     
     private static final Logger log = Logger.getLogger(ClienteDAO.class.getName());
-    private static Session session;
+    private Session session;
     
     public ClienteDAO(Session session) {
         this.session = session;
@@ -41,9 +41,7 @@ public class ClienteDAO {
             trx.rollback();
             log.log(Level.SEVERE, "Cliente não inserido", e);
             JOptionPane.showMessageDialog(c, "Não", null, JOptionPane.ERROR);
-        } finally {
-            session.close();
-        }
+        } 
     }
     
     public void adiciona(Cliente cliente){
@@ -57,9 +55,7 @@ public class ClienteDAO {
         catch (HibernateException e) {
             trx.rollback();
             log.log(Level.SEVERE, "Cliente não inserido", e);
-        } finally {
-            session.close();
-        }
+        } 
     }
 
     public Cliente buscaPorCPF(String CPF) {
