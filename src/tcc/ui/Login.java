@@ -6,6 +6,8 @@ package tcc.ui;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import tcc.TCC;
+import tcc.controller.LoginController;
 
 /**
  *
@@ -16,8 +18,10 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    LoginController controller;
     public Login() {
         initComponents();
+        this.controller = new LoginController();
     }
 
     /**
@@ -193,8 +197,20 @@ public class Login extends javax.swing.JFrame {
         else if(ps.length == 0) {
             JOptionPane.showMessageDialog(this, "Digite sua senha", "", JOptionPane.ERROR_MESSAGE);
         } else {
-            this.setVisible(false);
-            new Principal().setVisible(true);
+            char[] senha = this.jPasswordField1.getPassword();
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < senha.length; i++){
+                sb.append(senha[i]);
+            }
+            String sSenha = sb.toString();
+            tcc.model.Login login = controller.autenticaUsuario(this.jTextField1.getText(), sSenha);
+            if(login != null) {
+                TCC.setLogin(login);
+                this.setVisible(false);
+                new Principal().setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuário ou senha não encontrados", "", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 }

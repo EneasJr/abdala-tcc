@@ -14,8 +14,8 @@ import tcc.model.Cliente;
  * @author alberson
  */
 public class ClienteController {
-    Session session;
-    ClienteDAO dao;
+    private Session session;
+    private ClienteDAO dao;
     public ClienteController(){
         this.session = new CriadorDeSessao().getSession();
         this.dao = new ClienteDAO(this.session);
