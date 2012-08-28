@@ -61,7 +61,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblData = new javax.swing.JLabel();
         fNasc = new javax.swing.JFormattedTextField();
         lblSexo = new javax.swing.JLabel();
-        fMasc = new javax.swing.JComboBox();
+        fSexo = new javax.swing.JComboBox();
         lblTel = new javax.swing.JLabel();
         fTel = new javax.swing.JFormattedTextField();
         lblCel = new javax.swing.JLabel();
@@ -94,35 +94,35 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         JPanelCadastro.setLayout(null);
 
-        bntBusca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bntBusca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         bntBusca.setText("Busca");
         JPanelCadastro.add(bntBusca);
         bntBusca.setBounds(240, 10, 90, 30);
 
-        lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCodigo.setText("Código");
         JPanelCadastro.add(lblCodigo);
-        lblCodigo.setBounds(30, 10, 60, 22);
+        lblCodigo.setBounds(30, 10, 60, 17);
 
         fCodigo.setName("fCodigo"); // NOI18N
         JPanelCadastro.add(fCodigo);
         fCodigo.setBounds(150, 10, 79, 30);
 
-        lblNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNome.setText("Nome");
         JPanelCadastro.add(lblNome);
-        lblNome.setBounds(30, 50, 70, 22);
+        lblNome.setBounds(30, 50, 70, 17);
         JPanelCadastro.add(fNome);
         fNome.setBounds(150, 50, 610, 30);
 
-        lblEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblEmail.setText("E-mail");
         JPanelCadastro.add(lblEmail);
-        lblEmail.setBounds(30, 500, 49, 22);
+        lblEmail.setBounds(30, 500, 36, 17);
         JPanelCadastro.add(fEmail);
         fEmail.setBounds(150, 500, 490, 30);
 
-        btnInserir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnInserir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnInserir.setText("Inserir");
         btnInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,17 +132,17 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(btnInserir);
         btnInserir.setBounds(20, 580, 86, 30);
 
-        btnAtualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnAtualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAtualizar.setText("Atualizar");
         JPanelCadastro.add(btnAtualizar);
         btnAtualizar.setBounds(120, 580, 100, 30);
 
-        btnExcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnExcluir.setText("Excluir");
         JPanelCadastro.add(btnExcluir);
         btnExcluir.setBounds(230, 580, 86, 30);
 
-        btnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnSair.setText("Sair");
         btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,7 +152,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(btnSair);
         btnSair.setBounds(570, 580, 73, 30);
 
-        lblNacionalidade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblNacionalidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNacionalidade.setText("Nacionalidade");
         JPanelCadastro.add(lblNacionalidade);
         lblNacionalidade.setBounds(390, 460, 120, 30);
@@ -165,12 +165,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fNasciona);
         fNasciona.setBounds(520, 460, 120, 30);
 
-        lblCPF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCPF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCPF.setText("CPF");
         JPanelCadastro.add(lblCPF);
-        lblCPF.setBounds(30, 130, 30, 22);
+        lblCPF.setBounds(30, 130, 24, 17);
 
-        lblTipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblTipo.setText("Tipo");
         JPanelCadastro.add(lblTipo);
         lblTipo.setBounds(300, 170, 50, 30);
@@ -183,12 +183,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fCPF);
         fCPF.setBounds(150, 130, 290, 30);
 
-        fPessoa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fPessoa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fPessoa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Física", "Juridica" }));
         JPanelCadastro.add(fPessoa);
         fPessoa.setBounds(350, 170, 90, 30);
 
-        lblRG.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblRG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblRG.setText("RG");
         JPanelCadastro.add(lblRG);
         lblRG.setBounds(30, 90, 30, 30);
@@ -203,17 +203,17 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fCTPS);
         fCTPS.setBounds(150, 170, 140, 30);
 
-        lblCTPS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCTPS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCTPS.setText("Número CTPS");
         JPanelCadastro.add(lblCTPS);
         lblCTPS.setBounds(30, 170, 110, 30);
 
-        lblCivil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCivil.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCivil.setText("Estado Civil");
         JPanelCadastro.add(lblCivil);
         lblCivil.setBounds(30, 210, 100, 30);
 
-        fCivil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fCivil.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casado", "Solteiro" }));
         fCivil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,14 +223,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fCivil);
         fCivil.setBounds(150, 210, 110, 30);
 
-        lblProf.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblProf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblProf.setText("Profissão");
         JPanelCadastro.add(lblProf);
-        lblProf.setBounds(30, 420, 90, 22);
+        lblProf.setBounds(30, 420, 90, 17);
         JPanelCadastro.add(fProfissao);
         fProfissao.setBounds(150, 420, 490, 30);
 
-        lblData.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblData.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblData.setText("Data de Nasc");
         JPanelCadastro.add(lblData);
         lblData.setBounds(30, 460, 110, 30);
@@ -243,17 +243,17 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fNasc);
         fNasc.setBounds(150, 460, 120, 30);
 
-        lblSexo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblSexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblSexo.setText("Sexo");
         JPanelCadastro.add(lblSexo);
         lblSexo.setBounds(280, 210, 60, 30);
 
-        fMasc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        fMasc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
-        JPanelCadastro.add(fMasc);
-        fMasc.setBounds(330, 210, 110, 30);
+        fSexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        fSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        JPanelCadastro.add(fSexo);
+        fSexo.setBounds(330, 210, 110, 30);
 
-        lblTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblTel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblTel.setText("Telefone");
         JPanelCadastro.add(lblTel);
         lblTel.setBounds(30, 540, 80, 30);
@@ -266,7 +266,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fTel);
         fTel.setBounds(150, 540, 170, 30);
 
-        lblCel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCel.setText("Celular");
         JPanelCadastro.add(lblCel);
         lblCel.setBounds(390, 540, 70, 30);
@@ -279,12 +279,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fCel);
         fCel.setBounds(470, 540, 170, 30);
 
-        lblAdmissao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblAdmissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblAdmissao.setText("Data Admissão");
         JPanelCadastro.add(lblAdmissao);
         lblAdmissao.setBounds(500, 90, 120, 20);
 
-        lblDemissao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblDemissao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblDemissao.setText("Data Demissão");
         JPanelCadastro.add(lblDemissao);
         lblDemissao.setBounds(500, 130, 120, 30);
@@ -305,26 +305,26 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fDemissao);
         fDemissao.setBounds(640, 130, 120, 30);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Endereço");
         JPanelCadastro.add(jLabel1);
-        jLabel1.setBounds(30, 260, 100, 22);
+        jLabel1.setBounds(30, 260, 100, 17);
         JPanelCadastro.add(fEnd1);
         fEnd1.setBounds(150, 260, 290, 30);
         JPanelCadastro.add(fEnd2);
         fEnd2.setBounds(150, 300, 290, 30);
 
-        lblCidade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCidade.setText("Cidade");
         JPanelCadastro.add(lblCidade);
-        lblCidade.setBounds(30, 380, 80, 22);
+        lblCidade.setBounds(30, 380, 80, 17);
         JPanelCadastro.add(fCidade);
         fCidade.setBounds(150, 380, 160, 30);
 
-        lblCep.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCep.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblCep.setText("Cep");
         JPanelCadastro.add(lblCep);
-        lblCep.setBounds(30, 340, 40, 22);
+        lblCep.setBounds(30, 340, 40, 17);
 
         try {
             fCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -334,12 +334,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         JPanelCadastro.add(fCep);
         fCep.setBounds(150, 340, 160, 30);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("UF");
         JPanelCadastro.add(jLabel2);
-        jLabel2.setBounds(330, 340, 21, 22);
+        jLabel2.setBounds(330, 340, 16, 17);
 
-        fUF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        fUF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         fUF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AL", "AP", "AM", "BA", "CE", "DF ", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO" }));
         JPanelCadastro.add(fUF);
         fUF.setBounds(370, 340, 70, 30);
@@ -476,13 +476,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField fEmail;
     private javax.swing.JTextField fEnd1;
     private javax.swing.JTextField fEnd2;
-    private javax.swing.JComboBox fMasc;
     private javax.swing.JFormattedTextField fNasc;
     private javax.swing.JTextField fNasciona;
     private javax.swing.JTextField fNome;
     private javax.swing.JComboBox fPessoa;
     private javax.swing.JTextField fProfissao;
     private javax.swing.JFormattedTextField fRG;
+    private javax.swing.JComboBox fSexo;
     private javax.swing.JFormattedTextField fTel;
     private javax.swing.JComboBox fUF;
     private javax.swing.JLabel jLabel1;
