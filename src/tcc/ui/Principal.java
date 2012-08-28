@@ -4,6 +4,8 @@
  */
 package tcc.ui;
 
+import tcc.controller.AdministradorController;
+
 /**
  *
  * @author alex
@@ -13,9 +15,13 @@ public class Principal extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
+    
+    private AdministradorController adminController;
     public Principal() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);  
+        this.adminController = new AdministradorController();
+        this.mAreaAdmin.setVisible(!adminController.isAdmin());
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -37,7 +43,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        mAreaAdmin = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
 
@@ -101,7 +107,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("Área de Administrador");
+        mAreaAdmin.setText("Área de Administrador");
 
         jMenuItem5.setText("Cadastro de Funcionários");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +115,7 @@ public class Principal extends javax.swing.JFrame {
                 jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem5);
+        mAreaAdmin.add(jMenuItem5);
 
         jMenuItem6.setText("Cadastro de Administradores");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -117,9 +123,9 @@ public class Principal extends javax.swing.JFrame {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem6);
+        mAreaAdmin.add(jMenuItem6);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(mAreaAdmin);
 
         setJMenuBar(jMenuBar1);
 
@@ -210,7 +216,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -220,5 +225,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenu mAreaAdmin;
     // End of variables declaration//GEN-END:variables
 }

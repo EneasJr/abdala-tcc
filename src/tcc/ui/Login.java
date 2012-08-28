@@ -197,10 +197,9 @@ public class Login extends javax.swing.JFrame {
         else if(ps.length == 0) {
             JOptionPane.showMessageDialog(this, "Digite sua senha", "", JOptionPane.ERROR_MESSAGE);
         } else {
-            char[] senha = this.jPasswordField1.getPassword();
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < senha.length; i++){
-                sb.append(senha[i]);
+            for(int i = 0; i < this.jPasswordField1.getPassword().length; i++){
+                sb.append(this.jPasswordField1.getPassword()[i]);
             }
             String sSenha = sb.toString();
             tcc.model.Login login = controller.autenticaUsuario(this.jTextField1.getText(), sSenha);

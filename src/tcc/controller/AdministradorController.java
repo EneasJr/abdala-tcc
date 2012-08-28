@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import org.hibernate.Session;
 import tcc.TCC;
 import tcc.dao.AdministradorDAO;
+import tcc.infra.CriadorDeSessao;
 
 /**
  *
@@ -18,13 +19,13 @@ public class AdministradorController {
     private AdministradorDAO dao;
     private static final Logger log = Logger.getLogger(AdministradorController.class.getName());
     
-    public AdministradorController(Session session) {
-        this.session = session;
+    public AdministradorController() {
+        this.session = new CriadorDeSessao().getSession();
         this.dao = new AdministradorDAO(session);
     }
     
     public boolean isAdmin(){
-        return dao.isAdmin(TCC.getUsuarioLogado().getId());
+        return dao.isAdmin(TCC.getUsuarioLogado().getId_login());
     }
     
 }

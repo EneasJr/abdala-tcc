@@ -18,16 +18,16 @@ public class Login implements Serializable{
     
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    private long id_login;
     private String login;
     private String senha;
 
-    public long getId() {
-        return id;
+    public long getId_login() {
+        return id_login;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_login(long id_login) {
+        this.id_login = id_login;
     }
 
     public String getLogin() {

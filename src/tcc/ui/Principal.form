@@ -79,7 +79,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="mAreaAdmin">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xc1;rea de Administrador"/>
           </Properties>
