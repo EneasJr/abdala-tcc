@@ -4,23 +4,23 @@
  */
 package tcc.ui;
 
-import tcc.controller.AdministradorController;
+import tcc.TCC;
+
 
 /**
  *
  * @author alex
  */
 public class Principal extends javax.swing.JFrame {
+    private static final long serialVersionUID = 4590435486112754584L;
 
     /**
      * Creates new form Main
      */
     
-    private AdministradorController adminController;
     public Principal() {
         initComponents();
-        this.adminController = new AdministradorController();
-        this.mAreaAdmin.setVisible(!adminController.isAdmin());
+        this.mAreaAdmin.setVisible(TCC.getUsuario().isAdministrador());
         setExtendedState(MAXIMIZED_BOTH);
     }
 

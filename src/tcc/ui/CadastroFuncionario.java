@@ -369,7 +369,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
-        FuncionarioDAO dao = new FuncionarioDAO();
+        /* 
+         * Precisa ser criado o Funcionario Controller pra se relacionar com o DAO
+         * A view NUNCA pode se relacionar diretamente com o model
+         * 
+         * 
+         * FuncionarioDAO dao = new FuncionarioDAO();
         
         Funcionario funcionario = new Funcionario();
         EnderecoFuncionario endereco = new EnderecoFuncionario();
@@ -396,6 +401,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         funcionario.setUf("SP");
 
         dao.adiciona(funcionario, this);
+        * */
+        
     }//GEN-LAST:event_btnInserirActionPerformed
 
     private void fCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCivilActionPerformed

@@ -4,6 +4,7 @@
  */
 package tcc;
 
+import tcc.model.Usuario;
 import tcc.ui.Login;
 
 /**
@@ -11,25 +12,21 @@ import tcc.ui.Login;
  * @author alex
  */
 public class TCC {
-
-    /**
-     * @param args the command line arguments
-     */
     
-    private static tcc.model.Login login = null;
-    private static boolean isAdmin;
-    
-    public static void setLogin(tcc.model.Login login) {
-        if(TCC.login == null) {
-            TCC.login = login;
-        }
-    }
-    
-    public static tcc.model.Login getUsuarioLogado() {
-        return TCC.login;
-    }
+    private static Usuario usuario;
     
     public static void main(String[] args) {
         new Login().setVisible(true);
     }
+
+    public static void setUsuario(Usuario usuario) {
+        if(TCC.usuario == null) {
+            TCC.usuario = usuario;
+        }
+    }
+    
+    public static Usuario getUsuario() {
+        return TCC.usuario;
+    }
+    
 }

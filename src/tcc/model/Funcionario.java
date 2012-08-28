@@ -5,7 +5,9 @@
 package tcc.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import java.util.Date;
 
 @Entity
 @Table(name="funcionario")
@@ -27,75 +28,70 @@ public class Funcionario implements Serializable{
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id_funcionario;
     private String nome;
-    @OneToOne(optional=false, cascade= CascadeType.ALL, fetch= FetchType.EAGER)
-    @JoinColumn(name="id_funcao")
-    private long id_funcao;
+    
     @Temporal(TemporalType.DATE)
     private Date data_admissao;
+    
     @Temporal(TemporalType.DATE)
     private Date data_demissao;
-    @OneToOne(optional=false, cascade= CascadeType.ALL,fetch= FetchType.EAGER)
-    @JoinColumn(name="id_login")
-    private long id_login;
-    //adicionando novos componentes
+    
+    @OneToOne(cascade= CascadeType.ALL, fetch= FetchType.EAGER, optional=true)
+    @JoinColumn(name="id_usuario")
+    private Usuario usuario;
+    
     private String nacionalidade;
     private String cpf;
-    private String tipo;
     private String rg;
+    private String tipo;
     private String ctps;
-    private String estadoCivil;
+    private String estado_civil;
     private String profissao;
+    
     @Temporal(TemporalType.DATE)
-    private Date dataNasc;
+    private Date data_nasc;
     private String sexo;
     private String email;
     private String telefone;
     private String celular;
-    //Novos componentes 2
-    private String endereco1;
-    private String endereco2;
-    private String cep;
-    private String cidade;
-    private String uf;
 
-    public String getCep() {
-        return cep;
+    public long getId_funcionario() {
+        return id_funcionario;
     }
 
-    public void setCep(String cep) {
-        this.cep = cep;
+    public void setId_funcionario(long id_funcionario) {
+        this.id_funcionario = id_funcionario;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEndereco1() {
-        return endereco1;
+    public Date getData_admissao() {
+        return data_admissao;
     }
 
-    public void setEndereco1(String endereco1) {
-        this.endereco1 = endereco1;
+    public void setData_admissao(Date data_admissao) {
+        this.data_admissao = data_admissao;
     }
 
-    public String getEndereco2() {
-        return endereco2;
+    public Date getData_demissao() {
+        return data_demissao;
     }
 
-    public void setEndereco2(String endereco2) {
-        this.endereco2 = endereco2;
+    public void setData_demissao(Date data_demissao) {
+        this.data_demissao = data_demissao;
     }
 
-    public String getUf() {
-        return uf;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUf(String uf) {
-        this.uf = uf;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getNacionalidade() {
@@ -114,20 +110,20 @@ public class Funcionario implements Serializable{
         this.cpf = cpf;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public String getRg() {
         return rg;
     }
 
     public void setRg(String rg) {
         this.rg = rg;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getCtps() {
@@ -138,15 +134,13 @@ public class Funcionario implements Serializable{
         this.ctps = ctps;
     }
 
-    public String getEstadoCivil() {
-        return estadoCivil;
+    public String getEstado_civil() {
+        return estado_civil;
     }
 
-    public void setEstadoCivil(String estadoCivil) {
-        this.estadoCivil = estadoCivil;
+    public void setEstado_civil(String estado_civil) {
+        this.estado_civil = estado_civil;
     }
-
-
 
     public String getProfissao() {
         return profissao;
@@ -156,12 +150,12 @@ public class Funcionario implements Serializable{
         this.profissao = profissao;
     }
 
-    public Date getDataNasc() {
-        return dataNasc;
+    public Date getData_nasc() {
+        return data_nasc;
     }
 
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setData_nasc(Date data_nasc) {
+        this.data_nasc = data_nasc;
     }
 
     public String getSexo() {
@@ -195,55 +189,5 @@ public class Funcionario implements Serializable{
     public void setCelular(String celular) {
         this.celular = celular;
     }
-    
-    public long getId_funcionario() {
-        return id_funcionario;
-    }
-
-    public void setId_funcionario(long id_funcionario) {
-        this.id_funcionario = id_funcionario;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public long getId_funcao() {
-        return id_funcao;
-    }
-
-    public void setId_funcao(long id_funcao) {
-        this.id_funcao = id_funcao;
-    }
-
-    public Date getData_admissao() {
-        return data_admissao;
-    }
-
-    public void setData_admissao(Date data_admissao) {
-        this.data_admissao = data_admissao;
-    }
-
-    public Date getData_demissao() {
-        return data_demissao;
-    }
-
-    public void setData_demissao(Date data_demissao) {
-        this.data_demissao = data_demissao;
-    }
-
-    public long getId_login() {
-        return id_login;
-    }
-
-    public void setId_login(long id_login) {
-        this.id_login = id_login;
-    }
-    
-    
     
 }

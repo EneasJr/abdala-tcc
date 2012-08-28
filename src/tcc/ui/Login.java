@@ -7,7 +7,8 @@ package tcc.ui;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import tcc.TCC;
-import tcc.controller.LoginController;
+import tcc.controller.UsuarioController;
+import tcc.model.Usuario;
 
 /**
  *
@@ -18,10 +19,10 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    LoginController controller;
+    private UsuarioController controller;
     public Login() {
         initComponents();
-        this.controller = new LoginController();
+        this.controller = new UsuarioController();
     }
 
     /**
@@ -202,9 +203,9 @@ public class Login extends javax.swing.JFrame {
                 sb.append(this.jPasswordField1.getPassword()[i]);
             }
             String sSenha = sb.toString();
-            tcc.model.Login login = controller.autenticaUsuario(this.jTextField1.getText(), sSenha);
-            if(login != null) {
-                TCC.setLogin(login);
+            Usuario usuario = controller.autenticaUsuario(this.jTextField1.getText(), sSenha);
+            if(usuario != null) {
+                TCC.setUsuario(usuario);
                 this.setVisible(false);
                 new Principal().setVisible(true);
             } else {
