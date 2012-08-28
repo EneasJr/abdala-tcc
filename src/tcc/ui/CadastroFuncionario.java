@@ -80,26 +80,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         fUF = new javax.swing.JComboBox();
         JMenuBarra = new javax.swing.JMenuBar();
-        jmArquivo = new javax.swing.JMenu();
-        aAbrir = new javax.swing.JMenuItem();
-        aNovo = new javax.swing.JMenuItem();
-        aSalvar = new javax.swing.JMenuItem();
-        aSalvarComo = new javax.swing.JMenuItem();
-        ePropriedades = new javax.swing.JMenu();
-        eDesfazer = new javax.swing.JMenuItem();
-        eRefazer = new javax.swing.JMenuItem();
-        eCortar = new javax.swing.JMenuItem();
-        eCopiar = new javax.swing.JMenuItem();
-        eColar = new javax.swing.JMenuItem();
-        JMExibir = new javax.swing.JMenu();
-        eFerramentas = new javax.swing.JMenuItem();
-        ePropr = new javax.swing.JMenuItem();
-        eStatus = new javax.swing.JMenuItem();
-        eIGrandes = new javax.swing.JMenuItem();
-        eIPequenos = new javax.swing.JMenuItem();
-        eLista = new javax.swing.JMenuItem();
-        eDetalhe = new javax.swing.JMenuItem();
-        eClassificar = new javax.swing.JMenuItem();
         JMAjuda = new javax.swing.JMenu();
         aSobre = new javax.swing.JMenuItem();
         aServicosSup = new javax.swing.JMenuItem();
@@ -117,7 +97,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         bntBusca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bntBusca.setText("Busca");
         JPanelCadastro.add(bntBusca);
-        bntBusca.setBounds(250, 10, 90, 30);
+        bntBusca.setBounds(240, 10, 90, 30);
 
         lblCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCodigo.setText("Código");
@@ -138,9 +118,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblEmail.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblEmail.setText("E-mail");
         JPanelCadastro.add(lblEmail);
-        lblEmail.setBounds(30, 450, 49, 22);
+        lblEmail.setBounds(30, 500, 49, 22);
         JPanelCadastro.add(fEmail);
-        fEmail.setBounds(150, 450, 490, 30);
+        fEmail.setBounds(150, 500, 490, 30);
 
         btnInserir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnInserir.setText("Inserir");
@@ -150,29 +130,40 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
         JPanelCadastro.add(btnInserir);
-        btnInserir.setBounds(20, 530, 86, 30);
+        btnInserir.setBounds(20, 580, 86, 30);
 
         btnAtualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnAtualizar.setText("Atualizar");
         JPanelCadastro.add(btnAtualizar);
-        btnAtualizar.setBounds(120, 530, 100, 30);
+        btnAtualizar.setBounds(120, 580, 100, 30);
 
         btnExcluir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnExcluir.setText("Excluir");
         JPanelCadastro.add(btnExcluir);
-        btnExcluir.setBounds(230, 530, 86, 30);
+        btnExcluir.setBounds(230, 580, 86, 30);
 
         btnSair.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(btnSair);
-        btnSair.setBounds(560, 530, 73, 30);
+        btnSair.setBounds(570, 580, 73, 30);
 
         lblNacionalidade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblNacionalidade.setText("Nacionalidade");
         JPanelCadastro.add(lblNacionalidade);
-        lblNacionalidade.setBounds(30, 90, 120, 22);
+        lblNacionalidade.setBounds(390, 460, 120, 30);
+
+        fNasciona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fNascionaActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fNasciona);
-        fNasciona.setBounds(150, 90, 210, 30);
+        fNasciona.setBounds(520, 460, 120, 30);
 
         lblCPF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCPF.setText("CPF");
@@ -180,9 +171,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblCPF.setBounds(30, 130, 30, 22);
 
         lblTipo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblTipo.setText("Tipo Pessoa");
+        lblTipo.setText("Tipo");
         JPanelCadastro.add(lblTipo);
-        lblTipo.setBounds(30, 170, 110, 30);
+        lblTipo.setBounds(300, 170, 50, 30);
 
         try {
             fCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -190,17 +181,17 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         JPanelCadastro.add(fCPF);
-        fCPF.setBounds(150, 130, 210, 30);
+        fCPF.setBounds(150, 130, 290, 30);
 
         fPessoa.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fPessoa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Física", "Juridica" }));
         JPanelCadastro.add(fPessoa);
-        fPessoa.setBounds(150, 170, 210, 30);
+        fPessoa.setBounds(350, 170, 90, 30);
 
         lblRG.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblRG.setText("RG");
         JPanelCadastro.add(lblRG);
-        lblRG.setBounds(30, 210, 30, 30);
+        lblRG.setBounds(30, 90, 30, 30);
 
         try {
             fRG.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-###-###/#")));
@@ -208,36 +199,41 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         JPanelCadastro.add(fRG);
-        fRG.setBounds(150, 210, 210, 30);
+        fRG.setBounds(150, 90, 290, 30);
         JPanelCadastro.add(fCTPS);
-        fCTPS.setBounds(150, 250, 210, 30);
+        fCTPS.setBounds(150, 170, 140, 30);
 
         lblCTPS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCTPS.setText("Número CTPS");
         JPanelCadastro.add(lblCTPS);
-        lblCTPS.setBounds(30, 250, 110, 30);
+        lblCTPS.setBounds(30, 170, 110, 30);
 
         lblCivil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCivil.setText("Estado Civil");
         JPanelCadastro.add(lblCivil);
-        lblCivil.setBounds(30, 290, 110, 22);
+        lblCivil.setBounds(30, 210, 100, 30);
 
         fCivil.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Casado", "Solteiro" }));
+        fCivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fCivilActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fCivil);
-        fCivil.setBounds(150, 290, 210, 30);
+        fCivil.setBounds(150, 210, 110, 30);
 
         lblProf.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblProf.setText("Profissão");
         JPanelCadastro.add(lblProf);
-        lblProf.setBounds(30, 330, 90, 22);
+        lblProf.setBounds(30, 420, 90, 22);
         JPanelCadastro.add(fProfissao);
-        fProfissao.setBounds(150, 330, 490, 30);
+        fProfissao.setBounds(150, 420, 490, 30);
 
         lblData.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblData.setText("Data de Nasc");
         JPanelCadastro.add(lblData);
-        lblData.setBounds(30, 370, 110, 30);
+        lblData.setBounds(30, 460, 110, 30);
 
         try {
             fNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -245,22 +241,22 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         JPanelCadastro.add(fNasc);
-        fNasc.setBounds(150, 370, 210, 30);
+        fNasc.setBounds(150, 460, 120, 30);
 
         lblSexo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblSexo.setText("Sexo");
         JPanelCadastro.add(lblSexo);
-        lblSexo.setBounds(30, 410, 60, 30);
+        lblSexo.setBounds(280, 210, 60, 30);
 
         fMasc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fMasc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
         JPanelCadastro.add(fMasc);
-        fMasc.setBounds(150, 410, 210, 30);
+        fMasc.setBounds(330, 210, 110, 30);
 
         lblTel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTel.setText("Telefone");
         JPanelCadastro.add(lblTel);
-        lblTel.setBounds(30, 490, 80, 30);
+        lblTel.setBounds(30, 540, 80, 30);
 
         try {
             fTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-#####-####")));
@@ -268,12 +264,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         JPanelCadastro.add(fTel);
-        fTel.setBounds(150, 490, 170, 30);
+        fTel.setBounds(150, 540, 170, 30);
 
         lblCel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCel.setText("Celular");
         JPanelCadastro.add(lblCel);
-        lblCel.setBounds(390, 490, 70, 30);
+        lblCel.setBounds(390, 540, 70, 30);
 
         try {
             fCel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-#####-####")));
@@ -281,7 +277,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         JPanelCadastro.add(fCel);
-        fCel.setBounds(470, 490, 170, 30);
+        fCel.setBounds(470, 540, 170, 30);
 
         lblAdmissao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblAdmissao.setText("Data Admissão");
@@ -312,23 +308,23 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Endereço");
         JPanelCadastro.add(jLabel1);
-        jLabel1.setBounds(390, 170, 100, 22);
+        jLabel1.setBounds(30, 260, 100, 22);
         JPanelCadastro.add(fEnd1);
-        fEnd1.setBounds(500, 170, 260, 30);
+        fEnd1.setBounds(150, 260, 290, 30);
         JPanelCadastro.add(fEnd2);
-        fEnd2.setBounds(500, 210, 260, 30);
+        fEnd2.setBounds(150, 300, 290, 30);
 
         lblCidade.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCidade.setText("Cidade");
         JPanelCadastro.add(lblCidade);
-        lblCidade.setBounds(390, 290, 80, 22);
+        lblCidade.setBounds(30, 380, 80, 22);
         JPanelCadastro.add(fCidade);
-        fCidade.setBounds(500, 290, 140, 30);
+        fCidade.setBounds(150, 380, 160, 30);
 
         lblCep.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblCep.setText("Cep");
         JPanelCadastro.add(lblCep);
-        lblCep.setBounds(390, 250, 40, 22);
+        lblCep.setBounds(30, 340, 40, 22);
 
         try {
             fCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -336,114 +332,20 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         JPanelCadastro.add(fCep);
-        fCep.setBounds(500, 250, 140, 30);
+        fCep.setBounds(150, 340, 160, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("UF");
         JPanelCadastro.add(jLabel2);
-        jLabel2.setBounds(650, 250, 21, 22);
+        jLabel2.setBounds(330, 340, 21, 22);
 
         fUF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         fUF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AL", "AP", "AM", "BA", "CE", "DF ", "ES", "GO", "MA", "MT", "MS", "MG", "PR", "PB", "PA", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SE", "SP", "TO" }));
         JPanelCadastro.add(fUF);
-        fUF.setBounds(690, 250, 70, 30);
+        fUF.setBounds(370, 340, 70, 30);
 
         getContentPane().add(JPanelCadastro);
-        JPanelCadastro.setBounds(20, 10, 960, 570);
-
-        jmArquivo.setText("Arquivo");
-
-        aAbrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        aAbrir.setText("Abrir");
-        aAbrir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aAbrirActionPerformed(evt);
-            }
-        });
-        jmArquivo.add(aAbrir);
-        aAbrir.getAccessibleContext().setAccessibleDescription("");
-
-        aNovo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        aNovo.setText("Novo");
-        jmArquivo.add(aNovo);
-
-        aSalvar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        aSalvar.setText("Salvar");
-        jmArquivo.add(aSalvar);
-
-        aSalvarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        aSalvarComo.setText("Salvar Como");
-        jmArquivo.add(aSalvarComo);
-
-        JMenuBarra.add(jmArquivo);
-
-        ePropriedades.setText("Editar");
-
-        eDesfazer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        eDesfazer.setText("Desfazer");
-        eDesfazer.setToolTipText("");
-        ePropriedades.add(eDesfazer);
-
-        eRefazer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        eRefazer.setText("Refazer");
-        ePropriedades.add(eRefazer);
-
-        eCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        eCortar.setText("Cortar");
-        ePropriedades.add(eCortar);
-
-        eCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        eCopiar.setText("Copiar");
-        ePropriedades.add(eCopiar);
-
-        eColar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        eColar.setText("Colar");
-        ePropriedades.add(eColar);
-
-        JMenuBarra.add(ePropriedades);
-
-        JMExibir.setText("Exibir");
-
-        eFerramentas.setText("Barra de Ferramentas");
-        JMExibir.add(eFerramentas);
-
-        ePropr.setText("Barra de Propriedades");
-        ePropr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eProprActionPerformed(evt);
-            }
-        });
-        JMExibir.add(ePropr);
-
-        eStatus.setText("Barra de Status");
-        eStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eStatusActionPerformed(evt);
-            }
-        });
-        JMExibir.add(eStatus);
-
-        eIGrandes.setText("Ícones Grandes");
-        eIGrandes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eIGrandesActionPerformed(evt);
-            }
-        });
-        JMExibir.add(eIGrandes);
-
-        eIPequenos.setText("Ícones Pequenos");
-        JMExibir.add(eIPequenos);
-
-        eLista.setText("Lista");
-        JMExibir.add(eLista);
-
-        eDetalhe.setText("Detalhe");
-        JMExibir.add(eDetalhe);
-
-        eClassificar.setText("Classificar Tudo");
-        JMExibir.add(eClassificar);
-
-        JMenuBarra.add(JMExibir);
+        JPanelCadastro.setBounds(10, 10, 960, 620);
 
         JMAjuda.setText("Ajuda");
 
@@ -463,24 +365,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         getAccessibleContext().setAccessibleDescription("");
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-1016)/2, (screenSize.height-649)/2, 1016, 649);
+        setBounds((screenSize.width-1016)/2, (screenSize.height-709)/2, 1016, 709);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void aAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aAbrirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aAbrirActionPerformed
-
-    private void eProprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eProprActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eProprActionPerformed
-
-    private void eStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eStatusActionPerformed
-
-    private void eIGrandesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eIGrandesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eIGrandesActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         FuncionarioDAO dao = new FuncionarioDAO();
@@ -511,6 +397,18 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         dao.adiciona(funcionario, this);
     }//GEN-LAST:event_btnInserirActionPerformed
+
+    private void fCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fCivilActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSairActionPerformed
+
+    private void fNascionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNascionaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fNascionaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -555,14 +453,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMAjuda;
-    private javax.swing.JMenu JMExibir;
     private javax.swing.JMenuBar JMenuBarra;
     private javax.swing.JPanel JPanelCadastro;
-    private javax.swing.JMenuItem aAbrir;
     private javax.swing.JMenuItem aAtalhos;
-    private javax.swing.JMenuItem aNovo;
-    private javax.swing.JMenuItem aSalvar;
-    private javax.swing.JMenuItem aSalvarComo;
     private javax.swing.JMenuItem aServicosSup;
     private javax.swing.JMenuItem aSobre;
     private javax.swing.JButton bntBusca;
@@ -571,20 +464,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btnInserir;
     private javax.swing.JButton btnSair;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JMenuItem eClassificar;
-    private javax.swing.JMenuItem eColar;
-    private javax.swing.JMenuItem eCopiar;
-    private javax.swing.JMenuItem eCortar;
-    private javax.swing.JMenuItem eDesfazer;
-    private javax.swing.JMenuItem eDetalhe;
-    private javax.swing.JMenuItem eFerramentas;
-    private javax.swing.JMenuItem eIGrandes;
-    private javax.swing.JMenuItem eIPequenos;
-    private javax.swing.JMenuItem eLista;
-    private javax.swing.JMenuItem ePropr;
-    private javax.swing.JMenu ePropriedades;
-    private javax.swing.JMenuItem eRefazer;
-    private javax.swing.JMenuItem eStatus;
     private javax.swing.JFormattedTextField fAdmissao;
     private javax.swing.JFormattedTextField fCPF;
     private javax.swing.JFormattedTextField fCTPS;
@@ -608,7 +487,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JComboBox fUF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jmArquivo;
     private javax.swing.JLabel lblAdmissao;
     private javax.swing.JLabel lblCPF;
     private javax.swing.JLabel lblCTPS;
