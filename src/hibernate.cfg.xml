@@ -10,8 +10,6 @@
     
     <mapping class="tcc.model.Cliente"></mapping>
     <mapping class="tcc.model.EnderecoCliente"></mapping>
-    <mapping class="tcc.model.Login"></mapping>
-    <mapping class="tcc.model.Administrador"></mapping>
     <mapping class="tcc.model.EnderecoFuncionario"></mapping>
     <mapping class="tcc.model.Material"></mapping>
     <mapping class="tcc.model.TipoMaterial"></mapping>

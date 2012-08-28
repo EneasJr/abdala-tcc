@@ -376,6 +376,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
          * 
          * FuncionarioDAO dao = new FuncionarioDAO();
         
+        * aqui nesse caso, a view acessava o dao diretamente, o que ta aerrado
+        * 
         Funcionario funcionario = new Funcionario();
         EnderecoFuncionario endereco = new EnderecoFuncionario();
         funcionario.setNome(this.fNome.getText());

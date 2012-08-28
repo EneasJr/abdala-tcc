@@ -3,57 +3,46 @@
  * and open the template in the editor.
  */
 package tcc.dao;
-import java.awt.Component;
+
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import tcc.infra.CriadorDeSessao;
+import org.hibernate.criterion.Restrictions;
 import tcc.model.Funcionario;
 
-
-
 public class FuncionarioDAO {
-    
-    private static Logger log = Logger.getLogger(FuncionarioDAO.class.getName());
-        
-        public void adiciona(Funcionario funcionario, Component c){
-            
-        Session session = new CriadorDeSessao().getSession();
-        Transaction trx = session.beginTransaction();
-        trx.begin();
-        try{
-            session.save(funcionario);
-            trx.commit();
-            log.log(Level.FINE, "Funcionário inserido com sucesso");
-            JOptionPane.showMessageDialog(c, "Funcionario inserido com sucesso", null, JOptionPane.INFORMATION_MESSAGE);
-        }
-        catch (HibernateException e) {
-            trx.rollback();
-            log.log(Level.SEVERE, "Funcionário não inserido", e);
-            JOptionPane.showMessageDialog(c, "Não", null, JOptionPane.ERROR);
-        } finally {
-            session.close();
-        }
+
+    private static final Logger log = Logger.getLogger(FuncionarioDAO.class.getName());
+    private Session session;
+
+    public FuncionarioDAO(Session session) {
+        this.session = session;
     }
-    
-    public void adiciona(Funcionario funcionario){
-        Session session = new CriadorDeSessao().getSession();
+
+    public void adiciona(Funcionario funcionario) {
         Transaction trx = session.beginTransaction();
         trx.begin();
         try {
             session.save(funcionario);
             trx.commit();
             log.log(Level.FINE, "Funcionário inserido com sucesso");
-        }
-        catch (HibernateException e) {
+        } catch (HibernateException e) {
             trx.rollback();
             log.log(Level.SEVERE, "Funcionário não inserido", e);
-        } finally {
-            session.close();
         }
     }
-    
+
+    public Funcionario buscaPorCpf(String cpf) {
+        Criteria ct = session.createCriteria(Funcionario.class);
+        return (Funcionario) ct.add(Restrictions.eq("cpf", cpf)).uniqueResult();
+    }
+    public List<Funcionario> listaFuncionario(){
+        Criteria ct = session.createCriteria(Funcionario.class);
+        return ct.list();
+        
+    }
 }
