@@ -4,7 +4,6 @@
  */
 package tcc.controller;
 
-import java.util.List;
 import org.hibernate.Session;
 import tcc.dao.ClienteDAO;
 import tcc.infra.CriadorDeSessao;
@@ -26,8 +25,8 @@ public class ClienteController {
         dao.adiciona(cliente);
     }
     
-    public List<Cliente> todosClientes() {
-        return dao.lista();
+    public Cliente buscaPorCPF(String CPF) {
+        return this.dao.buscaPorCPF(CPF);
     }
     
 }
