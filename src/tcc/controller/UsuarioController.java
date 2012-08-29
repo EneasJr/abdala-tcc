@@ -18,8 +18,8 @@ public class UsuarioController {
     private UsuarioDAO dao;
     
     public UsuarioController(){
-        session = new CriadorDeSessao().getSession();
-        dao = new UsuarioDAO(session);
+        this.session = new CriadorDeSessao().getSession();
+        dao = new UsuarioDAO(this.session);
     }
     
     public Usuario autenticaUsuario(String login, String senha){

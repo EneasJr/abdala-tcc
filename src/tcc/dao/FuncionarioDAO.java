@@ -42,7 +42,7 @@ public class FuncionarioDAO {
     }
     public List<Funcionario> listaFuncionario(){
         Criteria ct = session.createCriteria(Funcionario.class);
-        return ct.list();
+        return (List<Funcionario>) ct.list();
         
     }
 }
