@@ -5,7 +5,6 @@
 package tcc.dao;
 
 import java.awt.Component;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -46,11 +45,6 @@ public class ClienteDAO {
     public Cliente buscaPorCPF(String CPF) {
         Criteria ct = session.createCriteria(Cliente.class);
         return (Cliente) ct.add(Restrictions.eq("documento", CPF)).uniqueResult();
-    }
-
-    public List<Cliente> lista() {
-        Criteria ct = session.createCriteria(Cliente.class);
-        return ct.list();
     }
     
 }
