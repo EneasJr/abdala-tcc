@@ -207,7 +207,7 @@ public class Login extends javax.swing.JFrame {
             if(usuario != null) {
                 TCC.setUsuario(usuario);
                 this.setVisible(false);
-                new Principal().setVisible(true);
+                //new Principal().setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Usuário ou senha não encontrados", "", JOptionPane.ERROR_MESSAGE);
             }
