@@ -53,6 +53,52 @@ public class Funcionario implements Serializable{
     private String email;
     private String telefone;
     private String celular;
+    private String cep;
+    private String endereco1;
+    private String endereco2;
+    private String uf;
+    //Inclusão da tabela end_funcionario
+    private EnderecoFuncionario end_func;
+
+    public EnderecoFuncionario getEnd_func() {
+        return end_func;
+    }
+
+    public void setEnd_func(EnderecoFuncionario end_func) {
+        this.end_func = end_func;
+    }     
+
+    public String getEndereco1() {
+        return endereco1;
+    }
+
+    public void setEndereco1(String endereco1) {
+        this.endereco1 = endereco1;
+    }
+
+    public String getEndereco2() {
+        return endereco2;
+    }
+
+    public void setEndereco2(String endereco2) {
+        this.endereco2 = endereco2;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
     public long getId_funcionario() {
         return id_funcionario;

@@ -73,26 +73,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         JMenuBarra = new javax.swing.JMenuBar();
-        JMArquivo = new javax.swing.JMenu();
-        aAbrir = new javax.swing.JMenuItem();
-        aNovo = new javax.swing.JMenuItem();
-        aSalvar = new javax.swing.JMenuItem();
-        aSalvarComo = new javax.swing.JMenuItem();
-        EPropriedades = new javax.swing.JMenu();
-        eDesfazer = new javax.swing.JMenuItem();
-        eRefazer = new javax.swing.JMenuItem();
-        eCortar = new javax.swing.JMenuItem();
-        eCopiar = new javax.swing.JMenuItem();
-        eColar = new javax.swing.JMenuItem();
-        JMExibir = new javax.swing.JMenu();
-        eFerramentas = new javax.swing.JMenuItem();
-        ePropr = new javax.swing.JMenuItem();
-        eStatus = new javax.swing.JMenuItem();
-        eIGrandes = new javax.swing.JMenuItem();
-        eIPequenos = new javax.swing.JMenuItem();
-        eLista = new javax.swing.JMenuItem();
-        eDetalhe = new javax.swing.JMenuItem();
-        eClassificar = new javax.swing.JMenuItem();
         JMAjuda = new javax.swing.JMenu();
         aSobre = new javax.swing.JMenuItem();
         aServicosSup = new javax.swing.JMenuItem();
@@ -457,100 +437,6 @@ public class CadastroCliente extends javax.swing.JFrame {
         getContentPane().add(JPanelCadastro);
         JPanelCadastro.setBounds(20, 20, 950, 450);
 
-        JMArquivo.setText("Arquivo");
-
-        aAbrir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
-        aAbrir.setText("Abrir");
-        aAbrir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aAbrirActionPerformed(evt);
-            }
-        });
-        JMArquivo.add(aAbrir);
-        aAbrir.getAccessibleContext().setAccessibleDescription("");
-
-        aNovo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        aNovo.setText("Novo");
-        JMArquivo.add(aNovo);
-
-        aSalvar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        aSalvar.setText("Salvar");
-        JMArquivo.add(aSalvar);
-
-        aSalvarComo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        aSalvarComo.setText("Salvar Como");
-        JMArquivo.add(aSalvarComo);
-
-        JMenuBarra.add(JMArquivo);
-
-        EPropriedades.setText("Editar");
-
-        eDesfazer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
-        eDesfazer.setText("Desfazer");
-        eDesfazer.setToolTipText("");
-        EPropriedades.add(eDesfazer);
-
-        eRefazer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Y, java.awt.event.InputEvent.CTRL_MASK));
-        eRefazer.setText("Refazer");
-        EPropriedades.add(eRefazer);
-
-        eCortar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        eCortar.setText("Cortar");
-        EPropriedades.add(eCortar);
-
-        eCopiar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        eCopiar.setText("Copiar");
-        EPropriedades.add(eCopiar);
-
-        eColar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
-        eColar.setText("Colar");
-        EPropriedades.add(eColar);
-
-        JMenuBarra.add(EPropriedades);
-
-        JMExibir.setText("Exibir");
-
-        eFerramentas.setText("Barra de Ferramentas");
-        JMExibir.add(eFerramentas);
-
-        ePropr.setText("Barra de Propriedades");
-        ePropr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eProprActionPerformed(evt);
-            }
-        });
-        JMExibir.add(ePropr);
-
-        eStatus.setText("Barra de Status");
-        eStatus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eStatusActionPerformed(evt);
-            }
-        });
-        JMExibir.add(eStatus);
-
-        eIGrandes.setText("Ícones Grandes");
-        eIGrandes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eIGrandesActionPerformed(evt);
-            }
-        });
-        JMExibir.add(eIGrandes);
-
-        eIPequenos.setText("Ícones Pequenos");
-        JMExibir.add(eIPequenos);
-
-        eLista.setText("Lista");
-        JMExibir.add(eLista);
-
-        eDetalhe.setText("Detalhe");
-        JMExibir.add(eDetalhe);
-
-        eClassificar.setText("Classificar Tudo");
-        JMExibir.add(eClassificar);
-
-        JMenuBarra.add(JMExibir);
-
         JMAjuda.setText("Ajuda");
 
         aSobre.setText("Sobre?");
@@ -572,25 +458,9 @@ public class CadastroCliente extends javax.swing.JFrame {
         setBounds((screenSize.width-1016)/2, (screenSize.height-638)/2, 1016, 638);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void aAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aAbrirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_aAbrirActionPerformed
-
     private void rdPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdPFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdPFActionPerformed
-
-    private void eProprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eProprActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eProprActionPerformed
-
-    private void eStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eStatusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eStatusActionPerformed
-
-    private void eIGrandesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eIGrandesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eIGrandesActionPerformed
 
     private void btnInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirActionPerformed
         ClienteController controller = new ClienteController();
@@ -605,9 +475,9 @@ public class CadastroCliente extends javax.swing.JFrame {
             cliente.setData_alt(new Date());
             
             if(this.rdPF.isSelected()){
-                cliente.setTipo("PF");
+                cliente.setTipo((String) this.cbUF.getSelectedItem());
             } else {
-                cliente.setTipo("PJ");
+                cliente.setTipo((String) this.cbUF.getSelectedItem());
             }
             
             cliente.setDocumento(this.eCNPJ.getText());
@@ -743,17 +613,10 @@ public class CadastroCliente extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu EPropriedades;
     private javax.swing.JMenu JMAjuda;
-    private javax.swing.JMenu JMArquivo;
-    private javax.swing.JMenu JMExibir;
     private javax.swing.JMenuBar JMenuBarra;
     private javax.swing.JPanel JPanelCadastro;
-    private javax.swing.JMenuItem aAbrir;
     private javax.swing.JMenuItem aAtalhos;
-    private javax.swing.JMenuItem aNovo;
-    private javax.swing.JMenuItem aSalvar;
-    private javax.swing.JMenuItem aSalvarComo;
     private javax.swing.JMenuItem aServicosSup;
     private javax.swing.JMenuItem aSobre;
     private javax.swing.JButton btnAtualizar;
@@ -767,25 +630,12 @@ public class CadastroCliente extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField eCNPJ;
     private javax.swing.JFormattedTextField eCel;
     private javax.swing.JTextField eCidade;
-    private javax.swing.JMenuItem eClassificar;
     private javax.swing.JTextField eCodigo;
-    private javax.swing.JMenuItem eColar;
-    private javax.swing.JMenuItem eCopiar;
-    private javax.swing.JMenuItem eCortar;
     private javax.swing.JFormattedTextField eDateAlt;
-    private javax.swing.JMenuItem eDesfazer;
-    private javax.swing.JMenuItem eDetalhe;
     private javax.swing.JTextField eEmail;
     private javax.swing.JTextField eEndereco;
     private javax.swing.JTextField eEndereco2;
-    private javax.swing.JMenuItem eFerramentas;
-    private javax.swing.JMenuItem eIGrandes;
-    private javax.swing.JMenuItem eIPequenos;
-    private javax.swing.JMenuItem eLista;
     private javax.swing.JTextField eNome;
-    private javax.swing.JMenuItem ePropr;
-    private javax.swing.JMenuItem eRefazer;
-    private javax.swing.JMenuItem eStatus;
     private javax.swing.JFormattedTextField eTel;
     private javax.swing.JLabel lblCNPJ;
     private javax.swing.JLabel lblCel;

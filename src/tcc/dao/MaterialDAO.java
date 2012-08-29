@@ -4,15 +4,13 @@
  */
 package tcc.dao;
 
-import java.awt.Component;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import tcc.infra.CriadorDeSessao;
-import tcc.model.Funcionario;
+import org.hibernate.criterion.Restrictions;
 import tcc.model.Material;
 
 /**
@@ -22,42 +20,30 @@ import tcc.model.Material;
 public class MaterialDAO {
     
     private static Logger log = Logger.getLogger(MaterialDAO.class.getName());
-        
-        public void adiciona(Material material, Component c){
-            
-        Session session = new CriadorDeSessao().getSession();
-        Transaction trx = session.beginTransaction();
-        trx.begin();
-        try{
-            session.save(material);
-            trx.commit();
-            log.log(Level.FINE, "Material inserido com sucesso");
-            JOptionPane.showMessageDialog(c, "Material inserido com sucesso", null, JOptionPane.INFORMATION_MESSAGE);
-        }
-        catch (HibernateException e) {
-            trx.rollback();
-            log.log(Level.SEVERE, "Material não inserido", e);
-            JOptionPane.showMessageDialog(c, "Não", null, JOptionPane.ERROR);
-        } finally {
-            session.close();
-        }
+    private Session session;
+
+    public MaterialDAO(Session session) {
+        this.session = session;
     }
-    
-    public void adiciona(Material material){
-        Session session = new CriadorDeSessao().getSession();
+        
+        public void adiciona(Material material) {
         Transaction trx = session.beginTransaction();
         trx.begin();
         try {
             session.save(material);
             trx.commit();
             log.log(Level.FINE, "Material inserido com sucesso");
-        }
-        catch (HibernateException e) {
+        } catch (HibernateException e) {
             trx.rollback();
             log.log(Level.SEVERE, "Material não inserido", e);
-        } finally {
-            session.close();
+            }
         }
-    }  
+        public Material buscaTipo(String nome) {
+        Criteria ct = session.createCriteria(Material.class);
+        return (Material) ct.add(Restrictions.eq("Nome", nome)).uniqueResult();
+         }
+    }
+   
     
-}
+    
+

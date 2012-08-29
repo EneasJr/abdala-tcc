@@ -14,13 +14,13 @@ import tcc.model.Usuario;
  *
  * @author alberson
  */
-public class Login extends javax.swing.JFrame {
+public class CadastroUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
     private UsuarioController controller;
-    public Login() {
+    public CadastroUsuario() {
         initComponents();
         this.controller = new UsuarioController();
     }
@@ -36,16 +36,19 @@ public class Login extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLogin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jEsqSenha = new javax.swing.JLabel();
-        cCadasUsu = new javax.swing.JLabel();
+        JSenha = new javax.swing.JPasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jConfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marcenaria Primu's");
+        setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("OK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,42 +56,33 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Login");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jLoginActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setText("Senha");
 
-        jPasswordField1.setToolTipText("");
-        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        JSenha.setToolTipText("");
+        JSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jPasswordField1KeyPressed(evt);
+                JSenhaKeyPressed(evt);
             }
         });
 
-        jEsqSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jEsqSenha.setForeground(new java.awt.Color(0, 0, 255));
-        jEsqSenha.setText("Esqueci minha senha");
-        jEsqSenha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jEsqSenha.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jEsqSenhaMouseReleased(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Confirmar");
 
-        cCadasUsu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        cCadasUsu.setForeground(new java.awt.Color(0, 0, 255));
-        cCadasUsu.setText("Cadastrar Usuário");
-        cCadasUsu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        cCadasUsu.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                cCadasUsuMouseReleased(evt);
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Cancela");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -97,72 +91,68 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
+                .add(21, 21, 21)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(layout.createSequentialGroup()
-                        .add(40, 40, 40)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                .add(jButton1)
-                                .add(layout.createSequentialGroup()
-                                    .add(jLabel2)
-                                    .add(18, 18, 18)
-                                    .add(jPasswordField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                            .add(layout.createSequentialGroup()
-                                .add(jLabel1)
-                                .add(23, 23, 23)
-                                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                            .add(jLabel2)
+                            .add(jLabel3))
+                        .add(9, 9, 9))
                     .add(layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(cCadasUsu)
-                        .add(18, 18, 18)
-                        .add(jEsqSenha)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .add(jLabel1)
+                        .add(40, 40, 40)))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(jLogin)
+                    .add(layout.createSequentialGroup()
+                        .add(jButton2)
+                        .add(38, 38, 38)
+                        .add(jButton1))
+                    .add(JSenha)
+                    .add(jConfSenha))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
                 .add(37, 37, 37)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel1))
                 .add(7, 7, 7)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jPasswordField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(JSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel2))
-                .add(11, 11, 11)
-                .add(jButton1)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(cCadasUsu)
-                    .add(jEsqSenha))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .add(jLabel3)
+                    .add(jConfSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jButton1)
+                    .add(jButton2))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jLoginActionPerformed
 
-    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+    private void JSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JSenhaKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             validateLogin();
         }
-    }//GEN-LAST:event_jPasswordField1KeyPressed
+    }//GEN-LAST:event_JSenhaKeyPressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         validateLogin();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jEsqSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jEsqSenhaMouseReleased
-        JOptionPane.showMessageDialog(this, "Se fodeu.", null, JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jEsqSenhaMouseReleased
-
-    private void cCadasUsuMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cCadasUsuMouseReleased
-        JOptionPane.showMessageDialog(this, "Cadastrar novo usuário", null, JOptionPane.INFORMATION_MESSAGE);
-        new CadastroUsuario().setVisible(true);
-    }//GEN-LAST:event_cCadasUsuMouseReleased
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,13 +171,13 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -195,23 +185,24 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new Login().setVisible(true);
+                new CadastroUsuario().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel cCadasUsu;
+    private javax.swing.JPasswordField JSenha;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jEsqSenha;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JPasswordField jConfSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jLogin;
     // End of variables declaration//GEN-END:variables
 
     private void validateLogin() {
-        char[] ps = this.jPasswordField1.getPassword();
-        String lg = this.jTextField1.getText();
+        char[] ps = this.JSenha.getPassword();
+        String lg = this.jLogin.getText();
         lg = lg.trim();
         if(lg.length() == 0) {
             JOptionPane.showMessageDialog(this, "Digite seu login", "", JOptionPane.ERROR_MESSAGE);
@@ -220,11 +211,11 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Digite sua senha", "", JOptionPane.ERROR_MESSAGE);
         } else {
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < this.jPasswordField1.getPassword().length; i++){
-                sb.append(this.jPasswordField1.getPassword()[i]);
+            for(int i = 0; i < this.JSenha.getPassword().length; i++){
+                sb.append(this.JSenha.getPassword()[i]);
             }
             String sSenha = sb.toString();
-            Usuario usuario = controller.autenticaUsuario(this.jTextField1.getText(), sSenha);
+            Usuario usuario = controller.autenticaUsuario(this.jLogin.getText(), sSenha);
             if(usuario != null) {
                 TCC.setUsuario(usuario);
                 this.setVisible(false);

@@ -4,8 +4,15 @@
  */
 package tcc.ui;
 
+import java.awt.Color;
+import java.awt.Component;
 import java.util.Date;
-import tcc.dao.FuncionarioDAO;
+import javax.swing.BorderFactory;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
+import tcc.controller.FuncionarioController;
 import tcc.model.EnderecoFuncionario;
 import tcc.model.Funcionario;
 
@@ -14,7 +21,7 @@ import tcc.model.Funcionario;
  * @author Affero
  */
 public class CadastroFuncionario extends javax.swing.JFrame {
-
+    private Border border;
     /**
      * Creates new form CadastroCliente
      */
@@ -85,7 +92,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         aServicosSup = new javax.swing.JMenuItem();
         aAtalhos = new javax.swing.JMenuItem();
 
-        setTitle("Cadastro de Clientes");
+        setTitle("Cadastro de Funcionários");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("Menu"); // NOI18N
         setPreferredSize(new java.awt.Dimension(1000, 600));
@@ -112,6 +119,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         lblNome.setText("Nome");
         JPanelCadastro.add(lblNome);
         lblNome.setBounds(30, 50, 70, 17);
+
+        fNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fNomeActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fNome);
         fNome.setBounds(150, 50, 610, 30);
 
@@ -180,6 +193,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fCPFActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fCPF);
         fCPF.setBounds(150, 130, 290, 30);
 
@@ -198,8 +216,19 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fRG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fRGActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fRG);
         fRG.setBounds(150, 90, 290, 30);
+
+        fCTPS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fCTPSActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fCTPS);
         fCTPS.setBounds(150, 170, 140, 30);
 
@@ -294,6 +323,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fAdmissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fAdmissaoActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fAdmissao);
         fAdmissao.setBounds(640, 90, 120, 30);
 
@@ -302,6 +336,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        fDemissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fDemissaoActionPerformed(evt);
+            }
+        });
         JPanelCadastro.add(fDemissao);
         fDemissao.setBounds(640, 130, 120, 30);
 
@@ -377,21 +416,23 @@ public class CadastroFuncionario extends javax.swing.JFrame {
          * FuncionarioDAO dao = new FuncionarioDAO();
         
         * aqui nesse caso, a view acessava o dao diretamente, o que ta aerrado
-        * 
+        **/
+        FuncionarioController controller = new FuncionarioController();
+        
+        
+        if (verificaPanel(JPanelCadastro)) {
         Funcionario funcionario = new Funcionario();
         EnderecoFuncionario endereco = new EnderecoFuncionario();
         funcionario.setNome(this.fNome.getText());
         funcionario.setNacionalidade(this.fNasciona.getText());
         funcionario.setCpf(this.fCPF.getText());
-        funcionario.setTipo("PF");
+        funcionario.setTipo((String) this.fUF.getSelectedItem());
         funcionario.setRg(this.fRG.getText());
-        //funcionario.setCtps(this.fCTPS.getText());
-        funcionario.setEstadoCivil("SP");
+        funcionario.setEstado_civil((String) this.fCivil.getSelectedItem());
         funcionario.setCtps(this.fCTPS.getText());
-        funcionario.setEstadoCivil("Solteiro");
         funcionario.setProfissao(this.fProfissao.getText());
-        funcionario.setDataNasc(new Date());
-        funcionario.setSexo("Masculino");
+        funcionario.setData_nasc(new Date());
+        funcionario.setSexo((String) this.fSexo.getSelectedItem());
         funcionario.setEmail(this.fEmail.getText());
         funcionario.setTelefone(this.fTel.getText());
         funcionario.setCelular(this.fCel.getText());
@@ -400,10 +441,24 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         funcionario.setCep(this.fCep.getText());
         funcionario.setEndereco1(this.fEnd1.getText());
         funcionario.setEndereco2(this.fEnd2.getText());
-        funcionario.setUf("SP");
-
-        dao.adiciona(funcionario, this);
-        * */
+        funcionario.setUf((String) this.fUF.getSelectedItem());
+        
+        funcionario.setEnd_func(endereco);    
+        controller.adiciona(funcionario);
+        funcionario.setId_funcionario(controller.buscaPorCpf(funcionario.getCpf()).getId_funcionario());
+        
+        this.fCodigo.setText(String.valueOf(funcionario.getId_funcionario()));
+    
+        }
+            /**
+            cliente.setEnd_cliente(endereco);
+            
+            controller.adiciona(cliente);
+            cliente.setId_cliente(controller.buscaPorCPF(cliente.getDocumento()).getId_cliente());
+            
+            this.eCodigo.setText(String.valueOf(cliente.getId_cliente()));
+            this.eDateAlt.setText(String.valueOf(cliente.getData_alt()));
+            **/
         
     }//GEN-LAST:event_btnInserirActionPerformed
 
@@ -418,6 +473,30 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void fNascionaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNascionaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fNascionaActionPerformed
+
+    private void fNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fNomeActionPerformed
+        verificaJTextField(fNome);
+    }//GEN-LAST:event_fNomeActionPerformed
+
+    private void fRGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fRGActionPerformed
+        verificaJTextField(fRG);
+    }//GEN-LAST:event_fRGActionPerformed
+
+    private void fCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCPFActionPerformed
+        verificaJTextField(fCPF);
+    }//GEN-LAST:event_fCPFActionPerformed
+
+    private void fAdmissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fAdmissaoActionPerformed
+        verificaJTextField(fAdmissao);
+    }//GEN-LAST:event_fAdmissaoActionPerformed
+
+    private void fDemissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fDemissaoActionPerformed
+        verificaJTextField(fDemissao);
+    }//GEN-LAST:event_fDemissaoActionPerformed
+
+    private void fCTPSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCTPSActionPerformed
+        verificaJTextField(fCTPS);
+    }//GEN-LAST:event_fCTPSActionPerformed
 
     /**
      * @param args the command line arguments
@@ -515,4 +594,53 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JLabel lblTel;
     private javax.swing.JLabel lblTipo;
     // End of variables declaration//GEN-END:variables
+
+        private boolean verificaPanel(JPanel jp) {
+        boolean rt = true;
+        for (Component c : jp.getComponents()) {
+            if (c instanceof JTextField) {
+                JTextField jtf = (JTextField) c;
+                if(!verificaJTextField(jtf)){
+                    rt = false;
+                }
+            }
+            if (c instanceof JFormattedTextField) {
+                JFormattedTextField jftf = (JFormattedTextField) c;
+                if(!verificaJTextField(jftf)){
+                    rt = false;
+                }
+            }
+        }
+        return rt;
+    }
+
+    private boolean verificaJTextField(JTextField jt) {
+        if(jt.equals(this.fEnd2)) {
+            return true;
+        }
+        
+        if(jt.equals(this.fCodigo)) {
+            return true;
+        }       
+        if (jt.getText() == null) {
+            jt.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+            return false;
+        }
+        String txt = jt.getText();
+        txt = txt.trim();
+        txt = txt.replace("/", "");
+        txt = txt.replace(".", "");
+        txt = txt.replace("-", "");
+        txt = txt.trim();
+        if (txt.equals("")) {
+            jt.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.red));
+            return false;
+        }
+        jt.setBorder(border);
+        return true;
+    }
+    
+    
 }
+
+
