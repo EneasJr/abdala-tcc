@@ -4,10 +4,8 @@
  */
 package tcc.dao;
 
-import java.awt.Component;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
