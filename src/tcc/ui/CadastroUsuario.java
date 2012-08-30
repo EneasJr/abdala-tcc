@@ -34,55 +34,55 @@ public class CadastroUsuario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        cUOk = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLogin = new javax.swing.JTextField();
+        cULogin = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        JSenha = new javax.swing.JPasswordField();
+        cUSenha = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jConfSenha = new javax.swing.JPasswordField();
+        cUCancela = new javax.swing.JButton();
+        cUConfSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Marcenaria Primu's");
         setAlwaysOnTop(true);
         setAutoRequestFocus(false);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cUOk.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        cUOk.setText("OK");
+        cUOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cUOkActionPerformed(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Login");
 
-        jLogin.addActionListener(new java.awt.event.ActionListener() {
+        cULogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jLoginActionPerformed(evt);
+                cULoginActionPerformed(evt);
             }
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setText("Senha");
 
-        JSenha.setToolTipText("");
-        JSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+        cUSenha.setToolTipText("");
+        cUSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                JSenhaKeyPressed(evt);
+                cUSenhaKeyPressed(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Confirmar");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("Cancela");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cUCancela.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cUCancela.setText("Cancela");
+        cUCancela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cUCancelaActionPerformed(evt);
             }
         });
 
@@ -102,13 +102,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
                         .add(jLabel1)
                         .add(40, 40, 40)))
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jLogin)
+                    .add(cULogin)
                     .add(layout.createSequentialGroup()
-                        .add(jButton2)
+                        .add(cUCancela)
                         .add(38, 38, 38)
-                        .add(jButton1))
-                    .add(JSenha)
-                    .add(jConfSenha))
+                        .add(cUOk))
+                    .add(cUSenha)
+                    .add(cUConfSenha))
                 .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,43 +116,43 @@ public class CadastroUsuario extends javax.swing.JFrame {
             .add(layout.createSequentialGroup()
                 .add(37, 37, 37)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(cULogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel1))
                 .add(7, 7, 7)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(JSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(cUSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(jLabel2))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
-                    .add(jConfSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(cUConfSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(18, 18, 18)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jButton1)
-                    .add(jButton2))
+                    .add(cUOk)
+                    .add(cUCancela))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLoginActionPerformed
+    private void cULoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cULoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLoginActionPerformed
+    }//GEN-LAST:event_cULoginActionPerformed
 
-    private void JSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JSenhaKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            validateLogin();
-        }
-    }//GEN-LAST:event_JSenhaKeyPressed
+    private void cUSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cUSenhaKeyPressed
+        //if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+          //  validateLogin();
+        //}
+    }//GEN-LAST:event_cUSenhaKeyPressed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        validateLogin();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void cUOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cUOkActionPerformed
+        //validateLogin();
+    }//GEN-LAST:event_cUOkActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cUCancelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cUCancelaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cUCancelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,19 +190,19 @@ public class CadastroUsuario extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField JSenha;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JPasswordField jConfSenha;
+    private javax.swing.JButton cUCancela;
+    private javax.swing.JPasswordField cUConfSenha;
+    private javax.swing.JTextField cULogin;
+    private javax.swing.JButton cUOk;
+    private javax.swing.JPasswordField cUSenha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jLogin;
     // End of variables declaration//GEN-END:variables
 
-    private void validateLogin() {
-        char[] ps = this.JSenha.getPassword();
-        String lg = this.jLogin.getText();
+    private void validateCadastroLogin() {
+        char[] ps = this.cUSenha.getPassword();
+        String lg = this.cULogin.getText();
         lg = lg.trim();
         if(lg.length() == 0) {
             JOptionPane.showMessageDialog(this, "Digite seu login", "", JOptionPane.ERROR_MESSAGE);
@@ -211,11 +211,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Digite sua senha", "", JOptionPane.ERROR_MESSAGE);
         } else {
             StringBuilder sb = new StringBuilder();
-            for(int i = 0; i < this.JSenha.getPassword().length; i++){
-                sb.append(this.JSenha.getPassword()[i]);
+            for(int i = 0; i < this.cUSenha.getPassword().length; i++){
+                sb.append(this.cUSenha.getPassword()[i]);
             }
             String sSenha = sb.toString();
-            Usuario usuario = controller.autenticaUsuario(this.jLogin.getText(), sSenha);
+            Usuario usuario = controller.autenticaUsuario(this.cULogin.getText(), sSenha);
             if(usuario != null) {
                 TCC.setUsuario(usuario);
                 this.setVisible(false);

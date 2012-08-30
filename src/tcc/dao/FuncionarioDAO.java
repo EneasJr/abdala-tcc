@@ -40,9 +40,10 @@ public class FuncionarioDAO {
         Criteria ct = session.createCriteria(Funcionario.class);
         return (Funcionario) ct.add(Restrictions.eq("cpf", cpf)).uniqueResult();
     }
-    public List<Funcionario> listaFuncionario(){
+   /** public List<Funcionario> listaFuncionario(){
         Criteria ct = session.createCriteria(Funcionario.class);
         return ct.list();
         
     }
+    **/ 
 }

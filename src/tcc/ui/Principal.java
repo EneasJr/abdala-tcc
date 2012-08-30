@@ -7,10 +7,6 @@ package tcc.ui;
 import tcc.TCC;
 
 
-/**
- *
- * @author alex
- */
 public class Principal extends javax.swing.JFrame {
     private static final long serialVersionUID = 4590435486112754584L;
 

@@ -11,39 +11,37 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import tcc.model.Material;
+import tcc.ui.CadastroUsuario;
 
 /**
  *
  * @author Eneas-NtBook
  */
-public class MaterialDAO {
+public class CadastroUsuarioDAO {
     
-    private static Logger log = Logger.getLogger(MaterialDAO.class.getName());
+    private static Logger log = Logger.getLogger(CadastroUsuarioDAO.class.getName());
     private Session session;
 
-    public MaterialDAO(Session session) {
+    public CadastroUsuarioDAO(Session session) {
         this.session = session;
     }
         
-        public void adiciona(Material material) {
+        public void adiciona(CadastroUsuario usuario) {
         Transaction trx = session.beginTransaction();
         trx.begin();
         try {
-            session.save(material);
+            session.save(usuario);
             trx.commit();
-            log.log(Level.FINE, "Material inserido com sucesso");
+            log.log(Level.FINE, "Cadastro de usuário incluso com sucesso");
         } catch (HibernateException e) {
             trx.rollback();
-            log.log(Level.SEVERE, "Material não inserido", e);
+            log.log(Level.SEVERE, "Cadastro não inserido", e);
             }
         }
-        public Material buscaTipo(String nome) {
-            Criteria ct = session.createCriteria(Material.class);
-        return (Material) ct.add(Restrictions.eq("Nome", nome)).uniqueResult();
-         }
-    }
-   
-    
-    
 
+    public CadastroUsuario buscaPorLogin(String login) {
+        Criteria ct = session.createCriteria(CadastroUsuario.class);
+        return (CadastroUsuario) ct.add(Restrictions.eq("Login", login)).uniqueResult();
+    }
+    
+}

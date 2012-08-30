@@ -6,7 +6,6 @@ package tcc.ui;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.util.Date;
 import javax.swing.BorderFactory;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
@@ -15,6 +14,7 @@ import javax.swing.border.Border;
 import tcc.controller.FuncionarioController;
 import tcc.model.EnderecoFuncionario;
 import tcc.model.Funcionario;
+import java.util.Date;
 
 /**
  *
@@ -417,48 +417,41 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         
         * aqui nesse caso, a view acessava o dao diretamente, o que ta aerrado
         **/
+        
         FuncionarioController controller = new FuncionarioController();
-        
-        
+
         if (verificaPanel(JPanelCadastro)) {
-        Funcionario funcionario = new Funcionario();
-        EnderecoFuncionario endereco = new EnderecoFuncionario();
-        funcionario.setNome(this.fNome.getText());
-        funcionario.setNacionalidade(this.fNasciona.getText());
-        funcionario.setCpf(this.fCPF.getText());
-        funcionario.setTipo((String) this.fUF.getSelectedItem());
-        funcionario.setRg(this.fRG.getText());
-        funcionario.setEstado_civil((String) this.fCivil.getSelectedItem());
-        funcionario.setCtps(this.fCTPS.getText());
-        funcionario.setProfissao(this.fProfissao.getText());
-        funcionario.setData_nasc(new Date());
-        funcionario.setSexo((String) this.fSexo.getSelectedItem());
-        funcionario.setEmail(this.fEmail.getText());
-        funcionario.setTelefone(this.fTel.getText());
-        funcionario.setCelular(this.fCel.getText());
-        funcionario.setData_admissao(new Date());
-        funcionario.setData_demissao(new Date());
-        funcionario.setCep(this.fCep.getText());
-        funcionario.setEndereco1(this.fEnd1.getText());
-        funcionario.setEndereco2(this.fEnd2.getText());
-        funcionario.setUf((String) this.fUF.getSelectedItem());
+            Funcionario funcionario = new Funcionario();
+            EnderecoFuncionario endereco = new EnderecoFuncionario();
+           
+            funcionario.setNome(this.fNome.getText());
+            funcionario.setRg(this.fRG.getText());
+            funcionario.setCpf(this.fCPF.getText());
+            funcionario.setData_admissao(new Date());
+            funcionario.setData_demissao(new Date());
+            funcionario.setCtps(this.fCTPS.getText());
+            funcionario.setEstado_civil((String) this.fCivil.getSelectedItem());
+            funcionario.setTipo((String) this.fPessoa.getSelectedItem());
+            funcionario.setSexo((String) this.fSexo.getSelectedItem());
+            endereco.setEndereco1(this.fEnd1.getText());
+            endereco.setEndereco2(this.fEnd2.getText());
+            endereco.setCep(this.fCep.getText());
+            endereco.setUf((String) this.fUF.getSelectedItem());
+            endereco.setCidade(this.fCidade.getText());
+            funcionario.setProfissao(this.fProfissao.getText());
+            funcionario.setData_nasc(new Date());
+            funcionario.setNacionalidade(this.fNasciona.getText());
+            funcionario.setEmail(this.fEmail.getText());
+            funcionario.setTelefone(this.fTel.getText());
+            funcionario.setCelular(this.fCel.getText());
+            
+            funcionario.setEnd_func(endereco);    
+            controller.adiciona(funcionario);
+            //funcionario.setId_funcionario(controller.buscaPorCpf(funcionario.getCpf()).getId_funcionario());
         
-        funcionario.setEnd_func(endereco);    
-        controller.adiciona(funcionario);
-        funcionario.setId_funcionario(controller.buscaPorCpf(funcionario.getCpf()).getId_funcionario());
-        
-        this.fCodigo.setText(String.valueOf(funcionario.getId_funcionario()));
+            //this.fCodigo.setText(String.valueOf(funcionario.getId_funcionario()));
     
         }
-            /**
-            cliente.setEnd_cliente(endereco);
-            
-            controller.adiciona(cliente);
-            cliente.setId_cliente(controller.buscaPorCPF(cliente.getDocumento()).getId_cliente());
-            
-            this.eCodigo.setText(String.valueOf(cliente.getId_cliente()));
-            this.eDateAlt.setText(String.valueOf(cliente.getData_alt()));
-            **/
         
     }//GEN-LAST:event_btnInserirActionPerformed
 

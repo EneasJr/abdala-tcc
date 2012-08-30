@@ -435,7 +435,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         );
 
         getContentPane().add(JPanelCadastro);
-        JPanelCadastro.setBounds(20, 20, 950, 450);
+        JPanelCadastro.setBounds(20, 20, 950, 460);
 
         JMAjuda.setText("Ajuda");
 

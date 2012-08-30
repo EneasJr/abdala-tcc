@@ -26,6 +26,7 @@ public class Funcionario implements Serializable{
     
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(updatable=false)
     private long id_funcionario;
     private String nome;
     
@@ -53,11 +54,9 @@ public class Funcionario implements Serializable{
     private String email;
     private String telefone;
     private String celular;
-    private String cep;
-    private String endereco1;
-    private String endereco2;
-    private String uf;
+
     //Inclusão da tabela end_funcionario
+    @OneToOne(optional=false, cascade= CascadeType.ALL, fetch= FetchType.EAGER)
     private EnderecoFuncionario end_func;
 
     public EnderecoFuncionario getEnd_func() {
@@ -67,39 +66,6 @@ public class Funcionario implements Serializable{
     public void setEnd_func(EnderecoFuncionario end_func) {
         this.end_func = end_func;
     }     
-
-    public String getEndereco1() {
-        return endereco1;
-    }
-
-    public void setEndereco1(String endereco1) {
-        this.endereco1 = endereco1;
-    }
-
-    public String getEndereco2() {
-        return endereco2;
-    }
-
-    public void setEndereco2(String endereco2) {
-        this.endereco2 = endereco2;
-    }
-
-    public String getUf() {
-        return uf;
-    }
-
-    public void setUf(String uf) {
-        this.uf = uf;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
-    }
-
     public long getId_funcionario() {
         return id_funcionario;
     }

@@ -5,6 +5,7 @@
 package tcc.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +19,7 @@ public class EnderecoFuncionario implements Serializable{
     
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(updatable=false)
     private long id_end_func;
     private String endereco1;
     private String endereco2;

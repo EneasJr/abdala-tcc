@@ -25,14 +25,16 @@ public class FuncionarioController {
     }
     
     public void adiciona(Funcionario funcionario){
-        dao.adiciona(funcionario);
+        this.dao.adiciona(funcionario);
     }
     
     public Funcionario buscaPorCpf(String cpf) {
-        return dao.buscaPorCpf(cpf);
+        return this.dao.buscaPorCpf(cpf);
     }
-    public List<Funcionario> listaFuncionario(){
+    /**public List<Funcionario> listaFuncionario(){
         return dao.listaFuncionario();
     }
+    **/
   }
+  
     

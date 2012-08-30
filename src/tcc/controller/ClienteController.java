@@ -23,6 +23,7 @@ public class ClienteController {
     
     public void adiciona(Cliente cliente){
         dao.adiciona(cliente);
+             
     }
     
     public Cliente buscaPorCPF(String CPF) {

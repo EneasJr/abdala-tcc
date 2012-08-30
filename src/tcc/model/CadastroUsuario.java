@@ -4,34 +4,25 @@
  */
 package tcc.model;
 
-import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.Type;
 
-/**
- *
- * @author alberson
- */
 @Entity
-@Table(name="usuario")
-public class Usuario implements Serializable {
+@Table(name = "usuario")
+public class CadastroUsuario {
     private static final long serialVersionUID = 863843336693807996L;
     
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(updatable=false)
     private long id_usuario;
     private String login;
     private String senha;
-    @Type(type="yes_no")
-    private boolean administrador;
-    
-    @OneToOne(mappedBy="usuario")
-    private Funcionario funcionario;
+    private String confirmarSenha;
 
     public long getId_usuario() {
         return id_usuario;
@@ -57,20 +48,12 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public boolean isAdministrador() {
-        return administrador;
+    public String getConfirmarSenha() {
+        return confirmarSenha;
     }
 
-    public void setAdministrador(boolean administrador) {
-        this.administrador = administrador;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+    public void setConfirmarSenha(String confirmarSenha) {
+        this.confirmarSenha = confirmarSenha;
     }
     
 }
